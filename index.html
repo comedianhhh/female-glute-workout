@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>女生形体与翘臀强化计划 · 健身房专属定制 | Glute & Physique Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Tia 体系 · 女生翘臀与形体课表 (Hevy Pro 级)</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Noto Sans SC"', 'sans-serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#fff1f2',
-              100: '#ffe4e6',
-              200: '#fecdd3',
-              300: '#fda4af',
-              400: '#fb7185',
-              500: '#f43f5e',
-              600: '#e11d48',
-              700: '#be123c',
+            app: {
+              bg: '#090d16',
+              card: '#121824',
+              surface: '#1b2333',
+              border: '#263147',
+              accent: '#f43f5e',
+              success: '#10b981',
+              warn: '#f59e0b',
             }
           }
         }
@@ -37,879 +38,875 @@
   </script>
   <style>
     * { -webkit-tap-highlight-color: transparent; }
-    .glass-nav {
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    body { background-color: #090d16; }
+    .glass-header {
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
-    .custom-scroll::-webkit-scrollbar {
-      height: 4px;
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; margin: 0; 
     }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: #334155;
-      border-radius: 4px;
+    .set-row-done {
+      background: rgba(16, 185, 129, 0.08) !important;
+      border-color: rgba(16, 185, 129, 0.3) !important;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen pb-32 antialiased selection:bg-rose-500 selection:text-white">
+<body class="text-slate-100 min-h-screen pb-36 antialiased font-sans">
 
-  <!-- TOP HEADER / BRANDING -->
-  <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 px-4 py-3 sm:px-6">
-    <div class="max-w-4xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/30 shrink-0">
-          <i data-lucide="flame" class="w-5 h-5"></i>
+  <!-- TOP APP BAR (Hevy / Strong Style) -->
+  <header class="sticky top-0 z-40 glass-header border-b border-app-border/70 px-4 py-3">
+    <div class="max-w-2xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 font-black text-sm">
+          T
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="font-extrabold text-base sm:text-lg tracking-tight bg-gradient-to-r from-white via-rose-100 to-rose-300 bg-clip-text text-transparent">
-              形体与翘臀强化指南
-            </h1>
-            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
-              <i data-lucide="check" class="w-3 h-3"></i>MY_GYM 器械全适配
-            </span>
+            <h1 class="text-sm font-bold tracking-tight text-white">Tia 体系 · 臀部与形体课表</h1>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">MY_GYM 配套</span>
           </div>
-          <p class="text-xs text-slate-400">有运动基础 · 力量新手适配 · ISSA CPT 标准设计</p>
+          <div class="flex items-center gap-2 text-[11px] text-slate-400">
+            <span>新手力量塑形</span>
+            <span>•</span>
+            <span id="sessionTimerText" class="font-mono text-slate-300">训练时长 00:00</span>
+          </div>
         </div>
       </div>
-      <!-- Quick Rest Timer Trigger -->
-      <button onclick="toggleTimerDrawer()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-rose-300 transition-all shrink-0">
-        <i data-lucide="timer" class="w-4 h-4 text-rose-400"></i>
-        <span id="navTimerDisplay">休息计时</span>
-      </button>
+      
+      <!-- Top Action: Finish Workout / Reset -->
+      <div class="flex items-center gap-1.5">
+        <button onclick="toggleGymDrawer()" class="px-2.5 py-1.5 rounded-lg bg-app-surface hover:bg-slate-700/60 border border-app-border text-xs text-slate-300 font-medium flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>器械</span>
+        </button>
+        <button onclick="resetRoutine()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-app-surface transition">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-5 space-y-6">
-
-    <!-- GYM MATCH BANNER -->
-    <section class="rounded-3xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 p-4 sm:p-5">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="flex items-start gap-3">
-          <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-            <i data-lucide="map-pin" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-sm sm:text-base font-bold text-white">已深度绑定您的健身房器械清单 (MY_GYM.md)</h3>
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">100% 可落地</span>
-            </div>
-            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-              现场无专用哈克机或犀牛角？计划已做精准平替：
-              <span class="text-emerald-400 font-medium">犀牛角/重硬拉 ➔ 45°圆背山羊挺身 + 龙门架绳索过裆伸髋</span>；
-              <span class="text-rose-400 font-medium">反向哈克 ➔ 史密斯反向深蹲</span>；
-              充分利用您的<span class="text-white font-medium">大龙门架、综合训练器、腿弯举机与爬坡机</span>！
-            </p>
-          </div>
-        </div>
-        <button onclick="toggleGymEquipmentModal()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-200 font-semibold flex items-center gap-1.5 whitespace-nowrap self-start sm:self-center">
-          <i data-lucide="eye" class="w-3.5 h-3.5 text-emerald-400"></i>查看器械映射
-        </button>
-      </div>
-    </section>
-
-    <!-- HERO PROFILE CARD -->
-    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-rose-950/40 border border-slate-800 p-5 sm:p-6 shadow-2xl">
-      <div class="absolute -right-12 -top-12 w-48 h-48 bg-rose-600/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-400 mb-2">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-            目标：饱满臀型 + 窄腰沙漏比 + 优雅体态
-          </div>
-          <h2 class="text-xl sm:text-2xl font-black text-white leading-snug">
-            4周渐进超负荷 · 科学塑形周期
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
-            结合大重量主项（史密斯臀推/山羊挺身）与博主高阶功能抗旋（悬垂鸟狗/抗旋板撑），精准刺激臀大肌与侧臀，不粗大腿、不伤下背。
-          </p>
-        </div>
-        <!-- Progress Ring Box -->
-        <div class="flex items-center gap-4 bg-slate-800/80 backdrop-blur rounded-2xl p-3 border border-slate-700/60 shrink-0">
-          <div class="flex flex-col">
-            <span class="text-[11px] text-slate-400 font-medium">今日完成度</span>
-            <div class="flex items-baseline gap-1 mt-0.5">
-              <span id="completedCount" class="text-xl font-black text-rose-400">0</span>
-              <span class="text-xs text-slate-500">/</span>
-              <span id="totalCount" class="text-xs text-slate-400">0 项</span>
-            </div>
-          </div>
-          <button onclick="resetDayProgress()" title="重置今天完成状态" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-700/70 transition">
-            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- KEY PRINCIPLES TAGS -->
-      <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs">
-        <span class="px-2.5 py-1 rounded-lg bg-slate-800/70 text-slate-300 border border-slate-700/50 flex items-center gap-1.5">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> 骨盆微后倾锁死 · 杜绝腰酸
-        </span>
-        <span class="px-2.5 py-1 rounded-lg bg-slate-800/70 text-slate-300 border border-slate-700/50 flex items-center gap-1.5">
-          <i data-lucide="dumbbell" class="w-3.5 h-3.5 text-rose-400"></i> 新手储备次数：留有2~3次余力(RPE 7-8)
-        </span>
-        <span class="px-2.5 py-1 rounded-lg bg-slate-800/70 text-slate-300 border border-slate-700/50 flex items-center gap-1.5">
-          <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-400"></i> 练背扩肩 · 视觉反衬细腰
-        </span>
-      </div>
-    </section>
-
-    <!-- DAY SELECTOR TABS -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-1 custom-scroll" id="dayTabs">
-      <button onclick="switchDay(1)" data-day="1" class="day-tab active-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-gradient-to-r from-rose-600 to-rose-500 text-white shadow-lg shadow-rose-600/25">
-        <span>🍑 Day 1</span>
-        <span>臀大肌与后链</span>
+  <!-- WORKOUT ROUTINE TABS (CLEAN PILL SLIDER) -->
+  <div class="max-w-2xl mx-auto px-4 pt-4">
+    <div class="flex items-center gap-1.5 p-1 rounded-xl bg-app-card border border-app-border/80 overflow-x-auto scrollbar-none">
+      <button onclick="selectRoutine('d1')" id="tab-d1" class="routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition bg-rose-600 text-white shadow-sm">
+        下肢 A (伸髋)
       </button>
-      <button onclick="switchDay(2)" data-day="2" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
-        <span>⏳ Day 2</span>
-        <span>美背直角肩与核心</span>
+      <button onclick="selectRoutine('d2')" id="tab-d2" class="routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition text-slate-400 hover:text-white">
+        上肢与体态
       </button>
-      <button onclick="switchDay(3)" data-day="3" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
-        <span>🧘‍♀️ Day 3</span>
-        <span>爬坡与主动恢复</span>
+      <button onclick="selectRoutine('d4')" id="tab-d4" class="routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition text-slate-400 hover:text-white">
+        下肢 B (深蹲侧臀)
       </button>
-      <button onclick="switchDay(4)" data-day="4" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
-        <span>🔥 Day 4</span>
-        <span>饱满度与侧臀雕刻</span>
-      </button>
-      <button onclick="switchDay(5)" data-day="5" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
-        <span>⭐ 进阶精讲</span>
-        <span>Tia高阶动作拆解</span>
-      </button>
-    </div>
-
-    <!-- DAY 1: 臀大肌与后链专项 -->
-    <div id="dayContent1" class="day-content space-y-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
-            <span>🍑 Day 1：臀大肌主导与伸髋爆发</span>
-            <span class="text-xs font-normal text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">下肢 A · 约 50~60 分钟</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">重点发展臀大肌最大张力与下臀弧线（避免下垂）</p>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-
-        <!-- D1 - E1 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e1">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e1')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">热身激活</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 瑜伽室：瑜伽垫 + 弹力带</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">弹力带地面臀桥 + 蚌式外展</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组 × 15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>唤醒沉睡臀肌</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(45)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>45s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>在瑜伽室铺垫，弹力带套在膝盖上方两指。臀桥抬起时下腹收紧、骨盆微后倾，切忌弓腰；顶点主动向外撑开膝盖1秒。</p>
-          </div>
-        </div>
-
-        <!-- D1 - E2 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e2">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e2')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">王牌主菜</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架 + 卧推平凳</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯机臀推 (Smith Hip Thrust)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300"><i data-lucide="shield" class="w-3.5 h-3.5 inline mr-1"></i>固定导轨更安全稳定性好</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(90)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>90s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1.5 border border-slate-800/60">
-            <p><strong class="text-emerald-400">✅ 关键要领：</strong>史密斯杆加上海绵垫放在髋骨折痕处。上背肩胛骨下角靠凳边缘，小腿在顶点垂直地面，下巴微收目视前方，在顶点夹紧臀部停顿 1 秒。</p>
-            <p><strong class="text-amber-400">⚠️ 避坑提醒：</strong>不要往后仰头挺胸，防止腰椎超伸借力引发下背痛。</p>
-          </div>
-        </div>
-
-        <!-- D1 - E3 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e3">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e3')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">后链离心拉伸 · 提拉臀线</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 自由力量哑铃区</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃罗马尼亚硬拉 (Dumbbell RDL)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-cyan-300"><i data-lucide="check" class="w-3.5 h-3.5 inline mr-1"></i>相比大杠铃更适合女生新手</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(90)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>90s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>微屈膝，把髋部想象成关车门一样往正后方顶。哑铃紧贴大腿小腿下落至膝盖下方，感受臀部下边缘与大腿后侧强烈牵拉感。</p>
-          </div>
-        </div>
-
-        <!-- D1 - E4 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e4">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e4')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">后链神器 · 零腰椎压力</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 山羊挺身椅 (Back Extension)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">45°圆背山羊挺身 (Glute Hyperextension)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-rose-300"><i data-lucide="star" class="w-3.5 h-3.5 inline mr-1"></i>完美平替重杠铃硬拉</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-emerald-400">🌟 健身房独门调法：</strong>将挡板高度调低至髂骨下方2指（保证髋关节自由屈伸）。脚尖外展45度，<strong class="text-white">背部主动含胸微弓（锁定竖脊肌不发力）</strong>，只用臀部收缩把身体拉起到一条直线，顶峰夹臀2秒！</p>
-          </div>
-        </div>
-
-        <!-- D1 - E5 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e5">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e5')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">孤立雕刻</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 超大绳索龙门架 (滑轮最低位)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">龙门架绳索过裆伸髋 (Pull-Through) 或 绳索后踢</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-amber-300"><i data-lucide="zap" class="w-3.5 h-3.5 inline mr-1"></i>完美平替犀牛角深蹲</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>背对龙门架，绳索装双头绳从两腿之间穿过。身体前倾屈髋蓄力，起立时臀部主动向前顶出收缩。水平方向阻力对臀部的持续张力极强，完全不用脊椎承重！</p>
-          </div>
-        </div>
-
-        <!-- D1 - E6 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-rose-900/40 p-4 transition hover:border-rose-700/60" data-id="d1_e6">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd1_e6')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-300 bg-rose-500/20 px-2 py-0.5 rounded border border-rose-500/30">泵感炸裂 · 超级收尾</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 瑜伽室：弹力带</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">弹力带臀推 10次 + 顶点外展 10次 (你的组合)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组超级组 (无间歇)</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>组间休息 75s</span>
-                  <span class="text-rose-400"><i data-lucide="flame" class="w-3.5 h-3.5 inline mr-1"></i>泵血充盈</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(75)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>75s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-rose-400">🔥 燃脂高光：</strong>在凳上用弹力带连续做10次快上慢下的臀推；第10次定在最高点保持持续张力，直接外展对抗阻力10次，彻底充血！</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DAY 2: 美背直角肩与核心 -->
-    <div id="dayContent2" class="day-content hidden space-y-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
-            <span>⏳ Day 2：沙漏型上半身与核心抗旋</span>
-            <span class="text-xs font-normal text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md border border-cyan-500/20">上肢与体态 · 约 45 分钟</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">练好背阔肌与三角肌中束，从视觉上打造纤细小蛮腰</p>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d2_e1">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd2_e1')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">倒三角开背</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 多功能力量器械：高位下拉站位</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">坐姿高位下拉 (Lat Pulldown)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-cyan-300">打造沙漏腰背比</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>多功能器械卡住大腿，双手握宽把，胸口迎向把手，手肘向下插向腰侧，感受腋下背阔肌收缩。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d2_e2">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd2_e2')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">改善圆肩</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 龙门架滑轮 (头部高度)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">绳索面拉 (Face Pull) 或 坐姿划船</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-cyan-300">展开锁骨·消除富贵包</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>双手抓双头绳，拉向额头鼻梁处，同时把两端向外拉开，强化三角肌后束与上背，矫正含胸驼背。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d2_e3">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd2_e3')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">直角肩</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 自由哑铃区 (1.5~2.5kg)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃侧平举 (Lateral Raise)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 12~15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-amber-300">小重量雕刻肩线</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(45)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>45s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>手肘微屈，向斜前方举起至与肩齐平，肩膀下沉不耸肩，打造清晰的一字肩线。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d2_e4">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd2_e4')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">博主同款核心</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 平卧推凳 / 下斜卷腹凳</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">髋屈抗旋静态板撑 (见图3)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 每侧 20~25s</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-emerald-300">收紧腹横肌勒细腰线</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(30)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>30s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>双手撑地在平板凳前，一侧腿膝盖弯曲向上提髋，对抗身体旋转的扭力。腹部收紧如穿束腰带。</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DAY 3: 主动恢复与爬坡 -->
-    <div id="dayContent3" class="day-content hidden space-y-4">
-      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
-        <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2 mb-2">
-          <i data-lucide="heart" class="w-5 h-5 text-rose-400"></i>
-          Day 3：健身房专属主动恢复与爬坡燃脂
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-          利用您健身房完善的有氧区（爬坡机/楼梯机）与瑜伽室，进行低冲击臀部泵感维持与筋膜放松。
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2 font-bold text-xs">
-              <i data-lucide="activity" class="w-4 h-4"></i>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-bold">📍 有氧器械区</span>
-            <h4 class="text-sm font-bold text-white mt-0.5">爬坡机 / 楼梯机 (20~25 min)</h4>
-            <p class="text-xs text-slate-400 mt-1">坡度调至 10~12，速度 4.5km/h，上身微前倾，全脚掌踩实后脚跟发力，臀部微酸但不喘，燃脂提臀两不误。</p>
-          </div>
-
-          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center mb-2 font-bold text-xs">
-              <i data-lucide="disc" class="w-4 h-4"></i>
-            </div>
-            <span class="text-[10px] text-rose-400 font-bold">📍 瑜伽室放松区</span>
-            <h4 class="text-sm font-bold text-white mt-0.5">泡沫轴筋膜放松 (10 min)</h4>
-            <p class="text-xs text-slate-400 mt-1">使用健身房泡沫轴，重点滚压大腿前侧（股四头肌）、大腿外侧（阔筋膜张肌）与臀部梨状肌，解除深蹲后的下肢紧绷。</p>
-          </div>
-
-          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-2 font-bold text-xs">
-              <i data-lucide="maximize-2" class="w-4 h-4"></i>
-            </div>
-            <span class="text-[10px] text-cyan-400 font-bold">📍 训练凳 / 瑜伽垫</span>
-            <h4 class="text-sm font-bold text-white mt-0.5">髋屈肌后撤伸展 (见图2)</h4>
-            <p class="text-xs text-slate-400 mt-1">坐在凳上缓慢后倾拉长髂腰肌，打开日常久坐缩短的大腿根部，改善骨盆前倾。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DAY 4: 饱满度与侧臀雕刻 -->
-    <div id="dayContent4" class="day-content hidden space-y-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
-            <span>🔥 Day 4：深蹲模式与侧臀（臀中肌）雕刻</span>
-            <span class="text-xs font-normal text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">下肢 B · 约 50 分钟</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">填补臀侧凹陷，塑造挺拔上翘的3D蜜桃臀轮廓</p>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e1">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd4_e1')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">单腿稳定性</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架立柱旁 (手扶辅助)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">单腿髋屈伸 + 髋飞机 (你的组合)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组 × 每侧 8~10 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-rose-300">改善左右臀发力不均</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-emerald-400">新手降阶：</strong>单手轻扶史密斯架立柱！先做单腿屈髋，在后腿伸直的基础上，慢慢旋转骨盆向上翻转打开，感受支撑腿臀部外侧强烈酸胀感。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e2">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd4_e2')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">大重量主项</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯深蹲架</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯相扑深蹲 / 箱式深蹲 (Sumo Squat)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 8~10 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300">臀大肌下沿与内收肌</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(90)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>90s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>站距宽于肩（约1.5倍），脚尖外展 30~45 度，下蹲时膝盖朝脚尖方向推开。可后方放一个平凳做箱式深蹲，触凳即起，安全不伤膝盖。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e3">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd4_e3')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">后侧深层刺激</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架反向站位 (平替反向哈克)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯反向站位深蹲 (Reverse Smith Squat)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 10~12 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300">零膝盖剪切力·全臀负荷</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(90)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>90s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-emerald-400">平替说明：</strong>健身房没有反向哈克机？在史密斯架反向站立（面朝后方），双脚向前迈出半步，下蹲时将臀部主动向后推出。力矩精准转移至大腿后链与臀肌！</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e4">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd4_e4')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">侧臀饱满神器</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 龙门架滑轮最低位 / 坐姿平凳弹力带</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">绳索侧外展 或 弹力带坐姿髋外展</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 15~20 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-purple-300">填平臀侧凹陷</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(45)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>45s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 技巧小变式：</strong>坐在平凳前端套弹力带，前10次身体前倾30度（刺激臀中肌上部），后10次上身挺直（刺激臀大肌上部），双重刺激填平侧臀。</p>
-          </div>
-        </div>
-
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e5">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <input type="checkbox" onchange="toggleItem(this, 'd4_e5')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
-              <div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">腘绳肌孤立</span>
-                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 双功能腿弯举机 (Leg Curl)</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">俯卧 / 坐姿腿弯举 (Leg Curl)</h4>
-                </div>
-                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
-                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-rose-300">清晰臀腿分界线</span>
-                </div>
-              </div>
-            </div>
-            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
-              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
-            </button>
-          </div>
-          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>直接使用健身房腿弯举机，脚踝勾住滚轴，快速勾起到顶点停顿1秒，慢速回放3秒，收紧大腿后侧，让臀部看起来更加挺拔独立。</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DAY 5: TIA 高阶动作拆解 (USER IMAGES EMBEDDED) -->
-    <div id="dayContent5" class="day-content hidden space-y-6">
-      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="p-2 rounded-xl bg-rose-500/20 text-rose-400">
-            <i data-lucide="video" class="w-5 h-5"></i>
-          </span>
-          <div>
-            <h3 class="text-base sm:text-lg font-black text-white">博主高阶功能动作全解 (Tia 同款)</h3>
-            <p class="text-xs text-slate-400">精准理解：它们在训练体系中的真实定位与新手进阶阶梯</p>
-          </div>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2">
-          你在社交媒体上看到的这 3 个动作属于<strong class="text-rose-400">高阶身体控制与末端肌力训练</strong>。很多新手直接盲目模仿容易因为肩部下沉不够、核心松散导致腰部借力。下面结合您健身房设施进行落地拆解：
-        </p>
-      </div>
-
-      <!-- Action Card 1 -->
-      <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-          <div class="md:col-span-5 bg-slate-950 relative flex items-center justify-center p-3">
-            <img src="assets/images/hanging_bird_dog.jpg" alt="垂悬鸟狗式" class="w-full max-h-80 object-contain rounded-2xl border border-slate-800 shadow">
-            <div class="absolute top-5 left-5 bg-black/70 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-bold text-amber-300 border border-amber-500/30">
-              高阶控制
-            </div>
-          </div>
-          <div class="md:col-span-7 p-5 sm:p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <h4 class="text-lg font-black text-white">动作一：垂悬鸟狗式 (Suspended Bird-Dog)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 史密斯架锁定在胸部高度</span>
-              </div>
-              <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
-                <p><strong class="text-rose-400">🎯 动作本质：</strong>将史密斯杆锁定在胸腰高度，双手悬吊身体呈反向倾斜平板，对角线进行单臂屈伸与单腿后抬。</p>
-                <p><strong class="text-emerald-400">💪 锻炼效益：</strong>深层多裂肌、腹横肌抗旋转控制、单侧臀大肌后链锁死能力。</p>
-                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
-                  <strong class="text-amber-400">🌱 新手落地指南：</strong>
-                  <br>① 第1~2周：先在瑜伽室垫上做地面鸟狗式（保持骨盆完全水平）；
-                  <br>② 第3周起：在史密斯架将杠铃杆调高一些（角度越高越容易），熟悉反向悬吊后再慢慢降低杆高。
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="info" class="w-4 h-4 text-slate-500"></i> 适合放在上肢日核心部分，或者练前神经激活。
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Card 2 -->
-      <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-          <div class="md:col-span-5 bg-slate-950 relative flex items-center justify-center p-3">
-            <img src="assets/images/hip_flexor_leanback.jpg" alt="髋屈肌后撤" class="w-full max-h-80 object-contain rounded-2xl border border-slate-800 shadow">
-            <div class="absolute top-5 left-5 bg-black/70 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-bold text-cyan-300 border border-cyan-500/30">
-              长度力量 (Lengthened Range)
-            </div>
-          </div>
-          <div class="md:col-span-7 p-5 sm:p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <h4 class="text-lg font-black text-white">动作二：髋屈肌后撤 (Hip Flexor Leanback)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 卧推平凳前端</span>
-              </div>
-              <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
-                <p><strong class="text-rose-400">🎯 动作本质：</strong>躯干后仰，在髂腰肌与股直肌处于极限拉伸（末端长度）状态下抗阻产力并单腿提膝。</p>
-                <p><strong class="text-emerald-400">💪 锻炼效益：</strong>现代人长期久坐髋屈肌极度缩短萎缩，这个动作能够打开大腿根部，让深蹲与臀推伸髋时臀肌真正收缩到极限！</p>
-                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
-                  <strong class="text-cyan-400">🌱 新手操作建议：</strong>
-                  <br>坐在健身房平凳边缘，双手扶在髋部或凳边，身体先向后倾斜 30 度感受大腿根被拉开，缓慢抬起一侧膝盖停顿 1 秒，不要憋气。
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="info" class="w-4 h-4 text-slate-500"></i> 适合作为臀腿训练前的髋关节活动度打开，或周三主动恢复。
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Card 3 -->
-      <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-          <div class="md:col-span-5 bg-slate-950 relative flex items-center justify-center p-3">
-            <img src="assets/images/hip_flexion_anti_rotation.jpg" alt="髋屈抗旋静态板撑" class="w-full max-h-80 object-contain rounded-2xl border border-slate-800 shadow">
-            <div class="absolute top-5 left-5 bg-black/70 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-bold text-rose-300 border border-rose-500/30">
-              深层核心
-            </div>
-          </div>
-          <div class="md:col-span-7 p-5 sm:p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <h4 class="text-lg font-black text-white">动作三：髋屈抗旋静态板撑 (Anti-Rotation Hold)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 下斜卷腹凳 / 平板凳</span>
-              </div>
-              <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
-                <p><strong class="text-rose-400">🎯 动作本质：</strong>利用平板凳垫高后脚，呈俯卧撑静态支撑姿势，同时将一侧膝盖跪姿屈曲悬空提向胸腹部。</p>
-                <p><strong class="text-emerald-400">💪 锻炼效益：</strong>腹横肌与腹斜肌极强收缩，强化骨盆中立位维持能力，从深层“勒紧腰身”，避免假胯宽与腹部凸出。</p>
-                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
-                  <strong class="text-rose-400">🌱 新手操作建议：</strong>
-                  <br>每侧静力维持 15~20 秒，组间休息 45 秒。注意双手手掌用力推地，肩胛骨饱满不塌陷，不要耸肩或塌腰。
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="info" class="w-4 h-4 text-slate-500"></i> 已整合进 Day 2 核心训练单元。
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- NUTRITION & FAQ -->
-    <section class="rounded-3xl bg-slate-900 border border-slate-800 p-5 sm:p-6 space-y-4">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
-          <i data-lucide="help-circle" class="w-4 h-4"></i>
-        </div>
-        <h3 class="text-base sm:text-lg font-black text-white">新手常见疑惑与塑形指南</h3>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
-          <h4 class="font-bold text-rose-300 flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-rose-400"></i> Q1：练臀会把大腿练粗吗？
-          </h4>
-          <p class="text-slate-300 leading-relaxed text-xs">
-            不会！计划重点是<strong class="text-white">伸髋主导</strong>（臀推、RDL、山羊挺身、绳索伸髋），大幅减少了前侧股四头肌的主动做功。适当的腘绳肌紧致只会让臀腿分界线更清晰，视觉上让腿显得更修长。
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
-          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i> Q2：练臀时总觉得下背腰酸？
-          </h4>
-          <p class="text-slate-300 leading-relaxed text-xs">
-            90% 的原因是在顶点时<strong class="text-white">过度挺胸反弓腰椎</strong>。谨记口诀：<strong>下巴微收看前方，肋骨向下沉，肚脐贴后背，骨盆微后倾夹紧臀部</strong>。推不动就减轻重量，先把发力感找准！
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
-          <h4 class="font-bold text-emerald-300 flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="utensils" class="w-4 h-4 text-emerald-400"></i> Q3：形体塑形期怎么吃？
-          </h4>
-          <p class="text-slate-300 leading-relaxed text-xs">
-            塑形三分练七分吃！按每公斤体重摄入 <strong class="text-white">1.4 ~ 1.6g 蛋白质</strong>（如50kg女生每天需70~80g蛋白质，相当于2个鸡蛋+200g鸡胸肉+一杯无糖豆浆/蛋白粉），多喝水，拒绝极端节食。
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
-          <h4 class="font-bold text-cyan-300 flex items-center gap-1.5 mb-1.5">
-            <i data-lucide="trending-up" class="w-4 h-4 text-cyan-400"></i> Q4：每组重量如何选择？
-          </h4>
-          <p class="text-slate-300 leading-relaxed text-xs">
-            前 2 周以掌握运动轨迹和神经连接为主；第 3 周起选择做完 10~12 次后感觉还能勉强做 2~3 次的重量（RPE 7-8），当某重量轻松能完成 12 次以上，下周微增重量。
-          </p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- GYM MODAL -->
-  <div id="gymModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <div class="flex items-center gap-2">
-          <i data-lucide="dumbbell" class="w-5 h-5 text-emerald-400"></i>
-          <h3 class="font-black text-white text-base">您的健身房器械 1:1 训练映射表</h3>
-        </div>
-        <button onclick="toggleGymEquipmentModal()" class="text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="space-y-3 text-xs text-slate-300">
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">1. 史密斯机 / 深蹲架</strong>
-          <p class="mt-1">➔ 用于：史密斯臀推（主打大重量安全伸髋）、史密斯相扑深蹲、史密斯反向深蹲（平替反向哈克机）。</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">2. 山羊挺身椅 (Back Extension)</strong>
-          <p class="mt-1">➔ 用于：45°圆背山羊挺身。专门将挡板调至髂骨下方，圆背只用臀大肌拉起身体，对女生来说比大杠铃硬拉更孤立、零腰椎负担！</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">3. 超大绳索龙门架 (Cable Crossover)</strong>
-          <p class="mt-1">➔ 用于：滑轮调至最低做绳索过裆髋屈伸（平替犀牛角深蹲）、绳索侧外展、绳索面拉（改善圆肩）、坐姿划船。</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">4. 双功能腿弯举机 (Leg Curl)</strong>
-          <p class="mt-1">➔ 用于：腘绳肌孤立训练，强化大腿后侧紧致度，拉出清晰臀腿分界线。</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">5. 多功能综合力量器械</strong>
-          <p class="mt-1">➔ 用于：坐姿高位下拉、坐姿划船，打造背阔肌与沙漏腰背比。</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">6. 爬坡机 / 楼梯机</strong>
-          <p class="mt-1">➔ 用于：Day 3 主动恢复与低冲击高效臀腿有氧燃脂。</p>
-        </div>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-          <strong class="text-emerald-400">7. 瑜伽室、泡沫轴、弹力带</strong>
-          <p class="mt-1">➔ 用于：地面臀桥外展激活、单腿髋飞机、反向鸟狗式与肌肉筋膜放松。</p>
-        </div>
-      </div>
-      <button onclick="toggleGymEquipmentModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition">
-        关闭
+      <button onclick="selectRoutine('tia')" id="tab-tia" class="routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition text-slate-400 hover:text-white flex items-center justify-center gap-1">
+        <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+        <span>Tia高阶精析</span>
       </button>
     </div>
   </div>
 
-  <!-- FLOATING TIMER DRAWER / BAR -->
-  <div id="timerDrawer" class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800 px-4 py-3 transform transition-transform duration-300 translate-y-full">
-    <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+  <!-- MAIN WORKOUT BODY -->
+  <main class="max-w-2xl mx-auto px-4 pt-4 space-y-4">
+
+    <!-- SUMMARY MINI BAR -->
+    <div class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-app-card/60 border border-app-border/60 text-xs">
       <div class="flex items-center gap-3">
-        <div class="relative w-12 h-12 flex items-center justify-center">
-          <svg class="w-12 h-12 -rotate-90">
-            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" class="text-slate-800" fill="transparent"/>
-            <circle id="timerProgressCircle" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="text-rose-500 transition-all duration-1000" fill="transparent" stroke-dasharray="125.6" stroke-dashoffset="0"/>
+        <div>
+          <span class="text-slate-400 text-[11px]">总动作</span>
+          <p class="font-bold text-white text-sm" id="summaryExerciseCount">5 个动作</p>
+        </div>
+        <div class="w-px h-6 bg-app-border"></div>
+        <div>
+          <span class="text-slate-400 text-[11px]">完成组数</span>
+          <p class="font-bold text-emerald-400 text-sm font-mono"><span id="summarySetsDone">0</span> / <span id="summarySetsTotal">0</span></p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 text-slate-400 text-[11px]">
+        <i data-lucide="dumbbell" class="w-3.5 h-3.5 text-rose-400"></i>
+        <span>目标 RPE 7-8 (留2次余力)</span>
+      </div>
+    </div>
+
+    <!-- ROUTINE: DAY 1 (下肢 A: 伸髋与臀大肌) -->
+    <div id="content-d1" class="routine-content space-y-4">
+
+      <!-- EXERCISE 1: 史密斯臀推 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden" data-exercise="smith_thrust">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">主项复合</span>
+                <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>史密斯机 + 平凳
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white mt-1">史密斯机臀推 (Smith Hip Thrust)</h3>
+            </div>
+            <button onclick="toggleCues('cues_smith')" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 py-1 px-2 rounded-lg bg-app-surface">
+              <span>要领</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <!-- Coach Cues (Hevy / Coach style: 3 golden points) -->
+          <div id="cues_smith" class="mt-3 p-3 rounded-xl bg-app-bg text-xs text-slate-300 space-y-1.5 border border-app-border/40">
+            <p><span class="text-emerald-400 font-semibold font-mono">1. 定位</span> 杠铃垫放在髋折痕，上背肩胛骨下角靠平凳边，小腿在最高点垂直地面。</p>
+            <p><span class="text-amber-400 font-semibold font-mono">2. 防腰酸</span> 眼睛看正前方别后仰！下巴微收，肋骨向下沉锁住腰椎。</p>
+            <p><span class="text-rose-400 font-semibold font-mono">3. 顶峰感</span> 顶点骨盆微后倾、夹紧屁股停顿 1 秒再缓慢下放。</p>
+          </div>
+        </div>
+
+        <!-- SETS TABLE (Clean Hevy style) -->
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="text-slate-400 font-mono text-[11px] pb-2 text-center">
+                <th class="w-12 text-left pl-2 font-medium">组别</th>
+                <th class="text-center font-medium">上次</th>
+                <th class="w-20 text-center font-medium">重量 (KG)</th>
+                <th class="w-20 text-center font-medium">次数</th>
+                <th class="w-12 text-right pr-2 font-medium">打卡</th>
+              </tr>
+            </thead>
+            <tbody class="space-y-1" id="tbody-smith_thrust">
+              <!-- Set 1 -->
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="st_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">20 kg × 12</td>
+                <td class="text-center">
+                  <input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-center">
+                  <input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface hover:bg-slate-700 text-slate-400 flex items-center justify-center transition ml-auto">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Set 2 -->
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="st_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">25 kg × 10</td>
+                <td class="text-center">
+                  <input type="number" value="25" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-center">
+                  <input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface hover:bg-slate-700 text-slate-400 flex items-center justify-center transition ml-auto">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Set 3 -->
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="st_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">25 kg × 10</td>
+                <td class="text-center">
+                  <input type="number" value="25" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-center">
+                  <input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface hover:bg-slate-700 text-slate-400 flex items-center justify-center transition ml-auto">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Set 4 -->
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="st_4">
+                <td class="pl-2 font-mono text-slate-400 font-bold">4</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">25 kg × 10</td>
+                <td class="text-center">
+                  <input type="number" value="25" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-center">
+                  <input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white">
+                </td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface hover:bg-slate-700 text-slate-400 flex items-center justify-center transition ml-auto">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 2: 哑铃罗马尼亚硬拉 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden" data-exercise="db_rdl">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">离心拉伸</span>
+                <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>自由哑铃区 (新手先用哑铃)
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white mt-1">哑铃罗马尼亚硬拉 (Dumbbell RDL)</h3>
+            </div>
+            <button onclick="toggleCues('cues_rdl')" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 py-1 px-2 rounded-lg bg-app-surface">
+              <span>要领</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div id="cues_rdl" class="mt-3 p-3 rounded-xl bg-app-bg text-xs text-slate-300 space-y-1.5 border border-app-border/40">
+            <p><span class="text-emerald-400 font-semibold font-mono">1. 关车门</span> 微屈膝，把屁股像推关车门一样往正后方顶，而不是向下蹲。</p>
+            <p><span class="text-amber-400 font-semibold font-mono">2. 哑铃贴腿</span> 哑铃全程贴紧大腿滑到膝盖下方，感受臀部下沿被深度拉长。</p>
+            <p><span class="text-rose-400 font-semibold font-mono">3. 避免弓腰</span> 挺胸沉肩，回程只用脚跟蹬地把髋部往前推直。</p>
+          </div>
+        </div>
+
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="text-slate-400 font-mono text-[11px] pb-2 text-center">
+                <th class="w-12 text-left pl-2 font-medium">组别</th>
+                <th class="text-center font-medium">上次</th>
+                <th class="w-20 text-center font-medium">重量 (KG/单只)</th>
+                <th class="w-20 text-center font-medium">次数</th>
+                <th class="w-12 text-right pr-2 font-medium">打卡</th>
+              </tr>
+            </thead>
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="rdl_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">8 kg × 12</td>
+                <td class="text-center"><input type="number" value="8" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="rdl_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">10 kg × 10</td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="rdl_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">10 kg × 10</td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 3: 45°圆背山羊挺身 (平替杠铃硬拉，王牌器械) -->
+      <div class="rounded-2xl bg-app-card border border-emerald-500/30 overflow-hidden" data-exercise="hyperext">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">零腰压神器</span>
+                <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>山羊挺身椅 (平替重杠铃硬拉)
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white mt-1">45°圆背山羊挺身 (Glute Hyperextension)</h3>
+            </div>
+            <button onclick="toggleCues('cues_hyper')" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 py-1 px-2 rounded-lg bg-app-surface">
+              <span>要领</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div id="cues_hyper" class="mt-3 p-3 rounded-xl bg-app-bg text-xs text-slate-300 space-y-1.5 border border-app-border/40">
+            <p><span class="text-emerald-400 font-semibold font-mono">1. 调挡板</span> 挡板调至骨盆髂骨下方2指，脚尖外展45度，给髋关节充分折叠空间。</p>
+            <p><span class="text-amber-400 font-semibold font-mono">2. 必须含胸圆背</span> 双手抱胸，背部像大虾一样主动微弓！这样能彻底切断下背竖脊肌发力，力量100%集中在臀部。</p>
+            <p><span class="text-rose-400 font-semibold font-mono">3. 顶峰夹紧</span> 起身到身体成一条直线即可（切勿超伸反弓），夹紧臀大肌2秒。</p>
+          </div>
+        </div>
+
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="text-slate-400 font-mono text-[11px] pb-2 text-center">
+                <th class="w-12 text-left pl-2 font-medium">组别</th>
+                <th class="text-center font-medium">上次</th>
+                <th class="w-20 text-center font-medium">负重 (自重/片)</th>
+                <th class="w-20 text-center font-medium">次数</th>
+                <th class="w-12 text-right pr-2 font-medium">打卡</th>
+              </tr>
+            </thead>
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="hyp_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">自重 × 15</td>
+                <td class="text-center"><span class="text-slate-400 font-mono font-bold">自重</span></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="hyp_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">自重 × 15</td>
+                <td class="text-center"><span class="text-slate-400 font-mono font-bold">自重</span></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="hyp_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">抱5kg片 × 12</td>
+                <td class="text-center"><input type="number" value="5" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 4: 龙门架绳索过裆伸髋 (平替犀牛角深蹲) -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden" data-exercise="cable_pull">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300">持续张力</span>
+                <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>龙门架滑轮最底端 + 双头绳
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white mt-1">龙门架绳索过裆伸髋 (Pull-Through)</h3>
+            </div>
+            <button onclick="toggleCues('cues_cable')" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 py-1 px-2 rounded-lg bg-app-surface">
+              <span>要领</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div id="cues_cable" class="mt-3 p-3 rounded-xl bg-app-bg text-xs text-slate-300 space-y-1.5 border border-app-border/40">
+            <p><span class="text-emerald-400 font-semibold font-mono">1. 犀牛角平替</span> 背对龙门架向前走两步，绳索从胯下穿过。水平方向拉力让臀肌全程对抗阻力，腰部毫无承重压力！</p>
+            <p><span class="text-rose-400 font-semibold font-mono">2. 动作节奏</span> 屈髋向后下放到深处（像拉满弓），站起时臀部用力往前顶出锁死。</p>
+          </div>
+        </div>
+
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="text-slate-400 font-mono text-[11px] pb-2 text-center">
+                <th class="w-12 text-left pl-2 font-medium">组别</th>
+                <th class="text-center font-medium">上次</th>
+                <th class="w-20 text-center font-medium">重量 (KG)</th>
+                <th class="w-20 text-center font-medium">次数</th>
+                <th class="w-12 text-right pr-2 font-medium">打卡</th>
+              </tr>
+            </thead>
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="cp_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">15 kg × 15</td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="cp_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">17.5 kg × 12</td>
+                <td class="text-center"><input type="number" value="17.5" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="cp_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono text-[11px]">20 kg × 12</td>
+                <td class="text-center"><input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border focus:border-rose-500 focus:outline-none text-white"></td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 5: 弹力带臀推+外展超级组 (用户指定组合) -->
+      <div class="rounded-2xl bg-app-card border border-rose-500/30 overflow-hidden" data-exercise="band_superset">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">超级泵感收尾</span>
+                <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>瑜伽室 / 弹力圈 + 平凳
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-white mt-1">弹力带持续张力臀推 10次 + 顶点外展 10次</h3>
+            </div>
+          </div>
+          <p class="text-xs text-rose-300 mt-2">
+            🔥 <strong class="text-white">打法：</strong>连续推10次不停；第10次不落回，直接停在顶点抗阻外展10次，做完臀部瞬间充血发烫！
+          </p>
+        </div>
+
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="text-slate-400 font-mono text-[11px] pb-2 text-center">
+                <th class="w-12 text-left pl-2 font-medium">组别</th>
+                <th class="text-center font-medium">模式</th>
+                <th class="w-28 text-center font-medium">完成要求</th>
+                <th class="w-12 text-right pr-2 font-medium">打卡</th>
+              </tr>
+            </thead>
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="bs_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-300 font-mono">弹力带中阻</td>
+                <td class="text-center text-rose-400 font-mono font-bold">10推 + 10外展</td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 75)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="bs_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-300 font-mono">弹力带高阻</td>
+                <td class="text-center text-rose-400 font-mono font-bold">10推 + 10外展</td>
+                <td class="text-right pr-2">
+                  <button onclick="toggleSetCheck(this, 75)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROUTINE: DAY 2 (上肢形体与核心) -->
+    <div id="content-d2" class="routine-content hidden space-y-4">
+      
+      <!-- EXERCISE 1: 高位下拉 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">沙漏腰背比</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>多功能力量器械高位下拉</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">坐姿高位下拉 (Lat Pulldown)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 胸挺迎把手，手肘向下插向腰侧，强化背阔肌，从视觉上让腰变细。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="lat_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">15 kg × 12</td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="lat_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">20 kg × 10</td>
+                <td class="text-center"><input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="lat_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono">20 kg × 10</td>
+                <td class="text-center"><input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 2: 哑铃侧平举 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">直角肩雕刻</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>自由哑铃 1.5~2.5kg</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">哑铃侧平举 (Lateral Raise)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 手肘微弯向前30度抬起至与肩平，千万别耸肩，轻重量打准中束。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="latr_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">2 kg × 15</td>
+                <td class="text-center"><input type="number" value="2" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="latr_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">2 kg × 15</td>
+                <td class="text-center"><input type="number" value="2" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="latr_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono">2.5 kg × 12</td>
+                <td class="text-center"><input type="number" value="2.5" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 3: 龙门架面拉 (改善圆肩) -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">改善驼背</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>龙门架绳索面拉</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">绳索面拉 (Face Pull)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 绳索拉向面部鼻梁处向两侧旋开，消除副乳、改善圆肩体态。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="fp_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">10 kg × 15</td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="fp_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">12.5 kg × 15</td>
+                <td class="text-center"><input type="number" value="12.5" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROUTINE: DAY 4 (下肢 B: 深蹲模式与侧臀) -->
+    <div id="content-d4" class="routine-content hidden space-y-4">
+
+      <!-- EXERCISE 1: 单腿髋屈伸+髋飞机 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">单腿控制</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>史密斯立柱旁 (手扶立柱)</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">单腿髋屈伸 10次 + 翻转髋飞机 10次</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 单手轻扶立柱，做完单腿屈髋后，后腿伸直慢慢旋转骨盆翻转打开，专治臀中肌无力与臀侧凹陷。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="plane_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">左侧</td>
+                <td class="text-center text-slate-300 font-mono">扶柱自重</td>
+                <td class="text-center font-mono text-rose-400 font-bold">10屈伸 + 10飞机</td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="plane_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">右侧</td>
+                <td class="text-center text-slate-300 font-mono">扶柱自重</td>
+                <td class="text-center font-mono text-rose-400 font-bold">10屈伸 + 10飞机</td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 45)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 2: 史密斯相扑深蹲 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">臀大肌下沿</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>史密斯机</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">史密斯相扑深蹲 / 箱式深蹲 (Sumo Squat)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 1.5倍肩宽，脚尖外展45°，下蹲时膝盖主动朝脚尖推开，躯干挺直，下到大腿平行地面。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="sumo_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">空杆 × 12</td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="sumo_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">+10kg × 10</td>
+                <td class="text-center"><input type="number" value="25" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="sumo_3">
+                <td class="pl-2 font-mono text-slate-400 font-bold">3</td>
+                <td class="text-center text-slate-400 font-mono">+10kg × 10</td>
+                <td class="text-center"><input type="number" value="25" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 3: 史密斯反向深蹲 (平替反向哈克) -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">反向哈克平替</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>史密斯反向站位</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">史密斯反向站位深蹲 (Reverse Smith Squat)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 面朝内站立，脚往前迈半步，向后推出屁股下沉，力矩全在后侧，膝盖零负担！</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="rsq_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">空杆 × 12</td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="rsq_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">+5kg × 10</td>
+                <td class="text-center"><input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="10" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 90)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXERCISE 4: 腿弯举机 (雕刻臀下沟) -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="p-4 border-b border-app-border/60">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">后链分界线</span>
+            <span class="text-[10px] text-slate-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>双功能腿弯举机 (Leg Curl)</span>
+          </div>
+          <h3 class="text-base font-bold text-white mt-1">腿弯举 (Seated / Lying Leg Curl)</h3>
+          <p class="text-xs text-slate-400 mt-1">💡 快速勾起到顶点顶峰收缩1秒，慢速回放3秒，收紧大腿后侧，让臀部独立饱满挺拔。</p>
+        </div>
+        <div class="p-3">
+          <table class="w-full text-xs">
+            <tbody class="space-y-1">
+              <tr class="set-row border-b border-app-border/30 h-10 transition rounded-lg" data-set-id="lc_1">
+                <td class="pl-2 font-mono text-slate-400 font-bold">1</td>
+                <td class="text-center text-slate-400 font-mono">15 kg × 15</td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="15" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+              <tr class="set-row h-10 transition rounded-lg" data-set-id="lc_2">
+                <td class="pl-2 font-mono text-slate-400 font-bold">2</td>
+                <td class="text-center text-slate-400 font-mono">20 kg × 12</td>
+                <td class="text-center"><input type="number" value="20" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-center"><input type="number" value="12" class="w-16 h-7 text-center font-mono font-bold bg-app-surface rounded border border-app-border text-white"></td>
+                <td class="text-right pr-2"><button onclick="toggleSetCheck(this, 60)" class="set-check-btn w-7 h-7 rounded-lg bg-app-surface text-slate-400 flex items-center justify-center transition ml-auto"><i data-lucide="check" class="w-4 h-4"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROUTINE: TIA 高阶精析 (博主实操图解与原理解析) -->
+    <div id="content-tia" class="routine-content hidden space-y-4">
+      <div class="p-3.5 rounded-2xl bg-app-card border border-app-border">
+        <div class="flex items-center gap-2">
+          <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+          <h3 class="text-sm font-bold text-white">我是Tia · B站高阶下肢力学动作库</h3>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">
+          博主视频中的动作重在<strong>“末端长度力量”</strong>与<strong>“核心抗旋转”</strong>，适合作为练前激活或收尾核心，真正提升关节活动度与神经控制。
+        </p>
+      </div>
+
+      <!-- Tia Photo 1 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="relative bg-slate-950 flex items-center justify-center p-2">
+          <img src="assets/images/hanging_bird_dog.jpg" alt="垂悬鸟狗式" class="w-full max-h-72 object-contain rounded-xl">
+          <span class="absolute top-4 left-4 text-[10px] font-bold px-2 py-0.5 rounded bg-black/70 text-amber-300 border border-amber-500/30">
+            垂悬鸟狗式 · 另一侧手臂屈伸加抬腿
+          </span>
+        </div>
+        <div class="p-4 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white text-sm">悬垂鸟狗式 (Suspended Bird-Dog)</h4>
+            <span class="text-slate-400 text-[11px]">📍 史密斯架锁在胸口高度</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            <strong class="text-emerald-400">力学拆解：</strong>身体仰卧悬吊，单手屈臂引体拉住杠铃，对角线单腿后蹬拉伸。此时腹横肌、臀大肌与背阔肌形成强大的<strong>交叉筋膜链</strong>闭环。
+          </p>
+          <p class="text-amber-400">
+            <strong>新手进阶建议：</strong>先在瑜伽室做地面四足鸟狗式（手膝着地）；熟练后再移步到史密斯架，将杠铃调高做反向悬垂。
+          </p>
+        </div>
+      </div>
+
+      <!-- Tia Photo 2 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="relative bg-slate-950 flex items-center justify-center p-2">
+          <img src="assets/images/hip_flexor_leanback.jpg" alt="髋屈肌后撤" class="w-full max-h-72 object-contain rounded-xl">
+          <span class="absolute top-4 left-4 text-[10px] font-bold px-2 py-0.5 rounded bg-black/70 text-cyan-300 border border-cyan-500/30">
+            髋屈肌后撤 · 在末端长度下产生力量
+          </span>
+        </div>
+        <div class="p-4 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white text-sm">髋屈肌后撤提膝 (Lengthened Range Strength)</h4>
+            <span class="text-slate-400 text-[11px]">📍 平板卧推凳前端</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            <strong class="text-cyan-400">力学拆解：</strong>坐在训练凳边缘身体向后仰倾斜，此时髂腰肌与股直肌被拉伸到最大长度，在末端长度主动提膝发力。
+          </p>
+          <p class="text-slate-300">
+            <strong>核心价值：</strong>久坐女生髋屈肌短缩僵硬，导致深蹲伸髋不充分。练完这个动作能瞬间打开大腿根部，让臀推时臀肌夹得更紧！
+          </p>
+        </div>
+      </div>
+
+      <!-- Tia Photo 3 -->
+      <div class="rounded-2xl bg-app-card border border-app-border overflow-hidden">
+        <div class="relative bg-slate-950 flex items-center justify-center p-2">
+          <img src="assets/images/hip_flexion_anti_rotation.jpg" alt="髋屈抗旋静态板撑" class="w-full max-h-72 object-contain rounded-xl">
+          <span class="absolute top-4 left-4 text-[10px] font-bold px-2 py-0.5 rounded bg-black/70 text-rose-300 border border-rose-500/30">
+            髋屈抗旋静态板撑 · 单侧膝盖跪姿向上
+          </span>
+        </div>
+        <div class="p-4 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white text-sm">髋屈抗旋静态板撑 (Anti-Rotation Plank)</h4>
+            <span class="text-slate-400 text-[11px]">📍 平板凳 / 下斜卷腹凳</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            <strong class="text-rose-400">力学拆解：</strong>后脚搭在凳上，呈俯卧撑静态支撑，单侧屈膝提髋悬空。身体时刻要抵抗翻转扭力，腹横肌如铁桶般收紧。
+          </p>
+          <p class="text-slate-300">
+            <strong>建议：</strong>每侧坚持 15~20 秒，做 2~3 组，收紧小腹不外凸。
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- GYM DRAWER MODAL -->
+  <div id="gymDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 hidden">
+    <div class="bg-app-card border-t sm:border border-app-border rounded-t-3xl sm:rounded-3xl max-w-lg w-full p-5 max-h-[80vh] overflow-y-auto space-y-3">
+      <div class="flex items-center justify-between border-b border-app-border pb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+          <h3 class="font-bold text-white text-sm">您的健身房器械 (MY_GYM) 快速落位</h3>
+        </div>
+        <button onclick="toggleGymDrawer()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="space-y-2 text-xs text-slate-300">
+        <div class="p-2.5 rounded-xl bg-app-bg border border-app-border">
+          <strong class="text-emerald-400">史密斯机</strong> ➔ 臀推、相扑深蹲、反向深蹲（平替反向哈克）
+        </div>
+        <div class="p-2.5 rounded-xl bg-app-bg border border-app-border">
+          <strong class="text-emerald-400">45°山羊挺身椅</strong> ➔ 圆背山羊挺身（平替大杠铃硬拉，零腰椎压力提臀）
+        </div>
+        <div class="p-2.5 rounded-xl bg-app-bg border border-app-border">
+          <strong class="text-emerald-400">超大绳索龙门架</strong> ➔ 最低位过裆伸髋（平替犀牛角深蹲）、面拉、侧平举
+        </div>
+        <div class="p-2.5 rounded-xl bg-app-bg border border-app-border">
+          <strong class="text-emerald-400">双功能腿弯举机</strong> ➔ 雕刻大腿后侧与臀腿分界线
+        </div>
+        <div class="p-2.5 rounded-xl bg-app-bg border border-app-border">
+          <strong class="text-emerald-400">爬坡机 / 楼梯机</strong> ➔ 坡度10~12，速度4.5，后脚跟发力燃脂提臀
+        </div>
+      </div>
+
+      <button onclick="toggleGymDrawer()" class="w-full py-2 rounded-xl bg-app-surface text-slate-200 text-xs font-bold hover:bg-slate-700">
+        返回课表
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTTOM FLOATING REST TIMER (Hevy Dock Style) -->
+  <div id="restTimerDock" class="fixed bottom-0 left-0 right-0 z-50 glass-header border-t border-app-border px-4 py-2.5">
+    <div class="max-w-2xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="relative w-11 h-11 flex items-center justify-center">
+          <svg class="w-11 h-11 -rotate-90">
+            <circle cx="22" cy="22" r="18" stroke="currentColor" stroke-width="3" class="text-app-surface" fill="transparent"/>
+            <circle id="timerProgressCircle" cx="22" cy="22" r="18" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="text-rose-500 transition-all duration-1000" fill="transparent" stroke-dasharray="113.1" stroke-dashoffset="0"/>
           </svg>
-          <span id="timerText" class="absolute font-mono font-bold text-sm text-white">00:00</span>
+          <span id="timerText" class="absolute font-mono font-bold text-xs text-white">01:30</span>
         </div>
         <div>
-          <div class="text-xs font-bold text-white flex items-center gap-1.5">
-            <span>组间休息计时器</span>
-            <span id="timerStatus" class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400">已就绪</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-white" id="timerStatus">组间休息</span>
+            <span class="text-[10px] font-mono text-slate-400" id="timerPresetLabel">90s</span>
           </div>
-          <div class="flex items-center gap-1.5 mt-1">
-            <button onclick="setTimerPreset(30)" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] hover:bg-slate-700">30s</button>
-            <button onclick="setTimerPreset(45)" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] hover:bg-slate-700">45s</button>
-            <button onclick="setTimerPreset(60)" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] hover:bg-slate-700">60s</button>
-            <button onclick="setTimerPreset(90)" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] hover:bg-slate-700">90s</button>
+          <div class="flex items-center gap-1 mt-0.5">
+            <button onclick="setRestTimer(45)" class="px-1.5 py-0.5 rounded bg-app-surface hover:bg-slate-700 text-slate-300 font-mono text-[10px]">45s</button>
+            <button onclick="setRestTimer(60)" class="px-1.5 py-0.5 rounded bg-app-surface hover:bg-slate-700 text-slate-300 font-mono text-[10px]">60s</button>
+            <button onclick="setRestTimer(90)" class="px-1.5 py-0.5 rounded bg-app-surface hover:bg-slate-700 text-slate-300 font-mono text-[10px]">90s</button>
+            <button onclick="addRestTime(15)" class="px-1.5 py-0.5 rounded bg-app-surface hover:bg-slate-700 text-slate-300 font-mono text-[10px] text-rose-300">+15s</button>
           </div>
         </div>
       </div>
+
       <div class="flex items-center gap-2">
-        <button id="timerToggleBtn" onclick="toggleTimer()" class="w-10 h-10 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/30 transition">
-          <i data-lucide="play" class="w-5 h-5"></i>
+        <button id="timerPlayBtn" onclick="toggleTimer()" class="w-9 h-9 rounded-xl bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center transition shadow-md shadow-rose-600/30">
+          <i data-lucide="play" class="w-4 h-4"></i>
         </button>
-        <button onclick="toggleTimerDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-white">
-          <i data-lucide="chevron-down" class="w-5 h-5"></i>
+        <button onclick="resetTimer()" class="p-2 rounded-xl text-slate-400 hover:text-white">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
@@ -918,146 +915,150 @@
   <script>
     lucide.createIcons();
 
-    let currentDay = 1;
-    let timerDuration = 60;
-    let timerRemaining = 60;
+    // Routine Switching
+    let currentRoutine = 'd1';
+    function selectRoutine(id) {
+      currentRoutine = id;
+      document.querySelectorAll('.routine-content').forEach(el => el.classList.add('hidden'));
+      const active = document.getElementById(`content-${id}`);
+      if (active) active.classList.remove('hidden');
+
+      document.querySelectorAll('.routine-tab').forEach(tab => {
+        if (tab.id === `tab-${id}`) {
+          tab.className = 'routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition bg-rose-600 text-white shadow-sm';
+        } else {
+          tab.className = 'routine-tab flex-1 min-w-[90px] py-2 px-3 rounded-lg text-xs font-semibold text-center transition text-slate-400 hover:text-white';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleCues(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    function toggleGymDrawer() {
+      document.getElementById('gymDrawer').classList.toggle('hidden');
+    }
+
+    // Checkmark & Log (Hevy style)
+    function toggleSetCheck(btn, restSeconds) {
+      const row = btn.closest('.set-row');
+      const isDone = row.classList.toggle('set-row-done');
+      const icon = btn.querySelector('svg') || btn.querySelector('i');
+
+      if (isDone) {
+        btn.classList.remove('bg-app-surface', 'text-slate-400');
+        btn.classList.add('bg-emerald-500', 'text-white');
+        startRestTimer(restSeconds || 60);
+      } else {
+        btn.classList.add('bg-app-surface', 'text-slate-400');
+        btn.classList.remove('bg-emerald-500', 'text-white');
+      }
+      saveSetsState();
+      updateStats();
+    }
+
+    function saveSetsState() {
+      const doneIds = [];
+      document.querySelectorAll('.set-row.set-row-done').forEach(r => {
+        doneIds.push(r.dataset.setId);
+      });
+      localStorage.setItem('tia_workout_done_sets', JSON.stringify(doneIds));
+    }
+
+    function loadSetsState() {
+      try {
+        const doneIds = JSON.parse(localStorage.getItem('tia_workout_done_sets') || '[]');
+        doneIds.forEach(id => {
+          const row = document.querySelector(`.set-row[data-set-id="${id}"]`);
+          if (row) {
+            row.classList.add('set-row-done');
+            const btn = row.querySelector('.set-check-btn');
+            if (btn) {
+              btn.classList.remove('bg-app-surface', 'text-slate-400');
+              btn.classList.add('bg-emerald-500', 'text-white');
+            }
+          }
+        });
+      } catch (e) {}
+      updateStats();
+    }
+
+    function updateStats() {
+      const activeContent = document.getElementById(`content-${currentRoutine}`);
+      if (!activeContent) return;
+      const allSets = activeContent.querySelectorAll('.set-row');
+      const doneSets = activeContent.querySelectorAll('.set-row.set-row-done');
+      const exercises = activeContent.querySelectorAll('[data-exercise]');
+
+      document.getElementById('summaryExerciseCount').textContent = `${exercises.length || 4} 个动作`;
+      document.getElementById('summarySetsDone').textContent = doneSets.length;
+      document.getElementById('summarySetsTotal').textContent = allSets.length;
+    }
+
+    function resetRoutine() {
+      if (confirm('确认重置所有组数打卡记录？')) {
+        localStorage.removeItem('tia_workout_done_sets');
+        document.querySelectorAll('.set-row').forEach(row => {
+          row.classList.remove('set-row-done');
+          const btn = row.querySelector('.set-check-btn');
+          if (btn) {
+            btn.classList.add('bg-app-surface', 'text-slate-400');
+            btn.classList.remove('bg-emerald-500', 'text-white');
+          }
+        });
+        updateStats();
+      }
+    }
+
+    // TIMER LOGIC (Hevy Floating Dock)
+    let timerTotal = 90;
+    let timerRemaining = 90;
     let timerInterval = null;
-    let isTimerRunning = false;
+    let isRunning = false;
     let audioCtx = null;
 
-    function toggleGymEquipmentModal() {
-      const modal = document.getElementById('gymModal');
-      modal.classList.toggle('hidden');
-    }
-
-    function getStoredProgress() {
-      try {
-        return JSON.parse(localStorage.getItem('glute_workout_progress') || '{}');
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveProgress(data) {
-      localStorage.setItem('glute_workout_progress', JSON.stringify(data));
-    }
-
-    function switchDay(day) {
-      currentDay = day;
-      document.querySelectorAll('.day-content').forEach(el => el.classList.add('hidden'));
-      const activeContent = document.getElementById(`dayContent${day}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      document.querySelectorAll('.day-tab').forEach(btn => {
-        const d = parseInt(btn.dataset.day);
-        if (d === day) {
-          btn.className = 'day-tab active-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-gradient-to-r from-rose-600 to-rose-500 text-white shadow-lg shadow-rose-600/25';
-        } else {
-          btn.className = 'day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800';
-        }
-      });
-
-      updateProgressUI();
-      window.scrollTo({ top: 180, behavior: 'smooth' });
-    }
-
-    function toggleItem(checkbox, id) {
-      const progress = getStoredProgress();
-      progress[id] = checkbox.checked;
-      saveProgress(progress);
-
-      const card = checkbox.closest('.workout-card');
-      if (card) {
-        if (checkbox.checked) {
-          card.classList.add('opacity-60');
-        } else {
-          card.classList.remove('opacity-60');
-        }
-      }
-      updateProgressUI();
-    }
-
-    function updateProgressUI() {
-      const currentCards = document.querySelectorAll(`#dayContent${currentDay} .workout-card`);
-      const total = currentCards.length;
-      const progress = getStoredProgress();
-      let completed = 0;
-
-      currentCards.forEach(card => {
-        const id = card.dataset.id;
-        const cb = card.querySelector('input[type="checkbox"]');
-        if (progress[id]) {
-          completed++;
-          if (cb) cb.checked = true;
-          card.classList.add('opacity-60');
-        } else {
-          if (cb) cb.checked = false;
-          card.classList.remove('opacity-60');
-        }
-      });
-
-      document.getElementById('completedCount').textContent = completed;
-      document.getElementById('totalCount').textContent = `${total} 项`;
-    }
-
-    function resetDayProgress() {
-      if (confirm('确定要重置当前训练日的打卡记录吗？')) {
-        const currentCards = document.querySelectorAll(`#dayContent${currentDay} .workout-card`);
-        const progress = getStoredProgress();
-        currentCards.forEach(card => {
-          const id = card.dataset.id;
-          delete progress[id];
-        });
-        saveProgress(progress);
-        updateProgressUI();
-      }
-    }
-
-    function toggleTimerDrawer() {
-      const drawer = document.getElementById('timerDrawer');
-      drawer.classList.toggle('translate-y-full');
-    }
-
-    function setTimerPreset(seconds) {
+    function setRestTimer(sec) {
       pauseTimer();
-      timerDuration = seconds;
-      timerRemaining = seconds;
-      updateTimerDisplay();
+      timerTotal = sec;
+      timerRemaining = sec;
+      document.getElementById('timerPresetLabel').textContent = `${sec}s`;
+      updateTimerUI();
       startTimer();
     }
 
-    function startQuickTimer(seconds) {
-      const drawer = document.getElementById('timerDrawer');
-      drawer.classList.remove('translate-y-full');
-      setTimerPreset(seconds);
+    function addRestTime(sec) {
+      timerRemaining += sec;
+      timerTotal = Math.max(timerTotal, timerRemaining);
+      updateTimerUI();
     }
 
-    function updateTimerDisplay() {
+    function startRestTimer(sec) {
+      setRestTimer(sec);
+    }
+
+    function updateTimerUI() {
       const m = Math.floor(timerRemaining / 60);
       const s = timerRemaining % 60;
-      const text = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-      document.getElementById('timerText').textContent = text;
-      document.getElementById('navTimerDisplay').textContent = text;
+      document.getElementById('timerText').textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
 
       const circle = document.getElementById('timerProgressCircle');
-      const totalCircumference = 2 * Math.PI * 20;
-      const fraction = timerRemaining / timerDuration;
-      circle.style.strokeDashoffset = (1 - fraction) * totalCircumference;
+      const totalLen = 2 * Math.PI * 18; // ~113.1
+      const frac = timerRemaining / timerTotal;
+      circle.style.strokeDashoffset = (1 - Math.max(0, frac)) * totalLen;
     }
 
     function toggleTimer() {
-      if (isTimerRunning) {
-        pauseTimer();
-      } else {
-        startTimer();
-      }
+      if (isRunning) pauseTimer();
+      else startTimer();
     }
 
-    function playBeep() {
+    function playDing() {
       try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sine';
@@ -1072,36 +1073,52 @@
     }
 
     function startTimer() {
-      if (isTimerRunning) return;
-      isTimerRunning = true;
-      document.getElementById('timerStatus').textContent = '休息中...';
-      document.getElementById('timerToggleBtn').innerHTML = '<i data-lucide="pause" class="w-5 h-5"></i>';
+      if (isRunning) return;
+      isRunning = true;
+      document.getElementById('timerStatus').textContent = '休息中';
+      document.getElementById('timerPlayBtn').innerHTML = '<i data-lucide="pause" class="w-4 h-4"></i>';
       lucide.createIcons();
 
       timerInterval = setInterval(() => {
         if (timerRemaining > 0) {
           timerRemaining--;
-          updateTimerDisplay();
+          updateTimerUI();
         } else {
           pauseTimer();
-          playBeep();
-          document.getElementById('timerStatus').textContent = '休息完成，开始下一组！';
+          playDing();
+          document.getElementById('timerStatus').textContent = '开始下一组！';
           if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
         }
       }, 1000);
     }
 
     function pauseTimer() {
-      isTimerRunning = false;
+      isRunning = false;
       if (timerInterval) clearInterval(timerInterval);
       document.getElementById('timerStatus').textContent = '已暂停';
-      document.getElementById('timerToggleBtn').innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
+      document.getElementById('timerPlayBtn').innerHTML = '<i data-lucide="play" class="w-4 h-4"></i>';
       lucide.createIcons();
     }
 
+    function resetTimer() {
+      pauseTimer();
+      timerRemaining = timerTotal;
+      document.getElementById('timerStatus').textContent = '就绪';
+      updateTimerUI();
+    }
+
+    // Workout session timer in header
+    let sessionSeconds = 0;
+    setInterval(() => {
+      sessionSeconds++;
+      const m = Math.floor(sessionSeconds / 60);
+      const s = sessionSeconds % 60;
+      document.getElementById('sessionTimerText').textContent = `训练时长 ${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }, 1000);
+
     window.addEventListener('DOMContentLoaded', () => {
-      updateTimerDisplay();
-      updateProgressUI();
+      loadSetsState();
+      updateTimerUI();
     });
   </script>
 </body>
