@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>女生形体与蜜桃臀强化训练计划 | Glute & Physique Pro</title>
+  <title>女生形体与翘臀强化计划 · 健身房专属定制 | Glute & Physique Pro</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
@@ -29,11 +29,6 @@
               500: '#f43f5e',
               600: '#e11d48',
               700: '#be123c',
-            },
-            dark: {
-              900: '#0f172a',
-              800: '#1e293b',
-              700: '#334155',
             }
           }
         }
@@ -41,15 +36,11 @@
     }
   </script>
   <style>
-    /* Smooth transitions and scrollbars */
     * { -webkit-tap-highlight-color: transparent; }
     .glass-nav {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-    }
-    .badge-glow {
-      box-shadow: 0 0 15px rgba(244, 63, 94, 0.35);
     }
     .custom-scroll::-webkit-scrollbar {
       height: 4px;
@@ -58,23 +49,15 @@
       background: #334155;
       border-radius: 4px;
     }
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 0.4; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-    .animate-pulse-ring {
-      animation: pulse-ring 2s infinite ease-in-out;
-    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen pb-28 antialiased selection:bg-rose-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-32 antialiased selection:bg-rose-500 selection:text-white">
 
   <!-- TOP HEADER / BRANDING -->
   <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 px-4 py-3 sm:px-6">
     <div class="max-w-4xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/30">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/30 shrink-0">
           <i data-lucide="flame" class="w-5 h-5"></i>
         </div>
         <div>
@@ -82,13 +65,15 @@
             <h1 class="font-extrabold text-base sm:text-lg tracking-tight bg-gradient-to-r from-white via-rose-100 to-rose-300 bg-clip-text text-transparent">
               形体与翘臀强化指南
             </h1>
-            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">ISSA CPT 进阶版</span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
+              <i data-lucide="check" class="w-3 h-3"></i>MY_GYM 器械全适配
+            </span>
           </div>
-          <p class="text-xs text-slate-400">有运动基础 · 力量新手适配布局</p>
+          <p class="text-xs text-slate-400">有运动基础 · 力量新手适配 · ISSA CPT 标准设计</p>
         </div>
       </div>
       <!-- Quick Rest Timer Trigger -->
-      <button onclick="toggleTimerDrawer()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-rose-300 transition-all">
+      <button onclick="toggleTimerDrawer()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-rose-300 transition-all shrink-0">
         <i data-lucide="timer" class="w-4 h-4 text-rose-400"></i>
         <span id="navTimerDisplay">休息计时</span>
       </button>
@@ -96,6 +81,32 @@
   </header>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-5 space-y-6">
+
+    <!-- GYM MATCH BANNER -->
+    <section class="rounded-3xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 p-4 sm:p-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-sm sm:text-base font-bold text-white">已深度绑定您的健身房器械清单 (MY_GYM.md)</h3>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">100% 可落地</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              现场无专用哈克机或犀牛角？计划已做精准平替：
+              <span class="text-emerald-400 font-medium">犀牛角/重硬拉 ➔ 45°圆背山羊挺身 + 龙门架绳索过裆伸髋</span>；
+              <span class="text-rose-400 font-medium">反向哈克 ➔ 史密斯反向深蹲</span>；
+              充分利用您的<span class="text-white font-medium">大龙门架、综合训练器、腿弯举机与爬坡机</span>！
+            </p>
+          </div>
+        </div>
+        <button onclick="toggleGymEquipmentModal()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-200 font-semibold flex items-center gap-1.5 whitespace-nowrap self-start sm:self-center">
+          <i data-lucide="eye" class="w-3.5 h-3.5 text-emerald-400"></i>查看器械映射
+        </button>
+      </div>
+    </section>
 
     <!-- HERO PROFILE CARD -->
     <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-rose-950/40 border border-slate-800 p-5 sm:p-6 shadow-2xl">
@@ -110,7 +121,7 @@
             4周渐进超负荷 · 科学塑形周期
           </h2>
           <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
-            融合高张力大重量主项（臀推/RDL）与高阶功能抗旋控制（鸟狗式/单腿髋飞机），精准打造臀大肌下部与臀中肌侧翼，拒绝粗腿腰酸。
+            结合大重量主项（史密斯臀推/山羊挺身）与博主高阶功能抗旋（悬垂鸟狗/抗旋板撑），精准刺激臀大肌与侧臀，不粗大腿、不伤下背。
           </p>
         </div>
         <!-- Progress Ring Box -->
@@ -155,14 +166,14 @@
       </button>
       <button onclick="switchDay(3)" data-day="3" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
         <span>🧘‍♀️ Day 3</span>
-        <span>主动恢复与拉伸</span>
+        <span>爬坡与主动恢复</span>
       </button>
       <button onclick="switchDay(4)" data-day="4" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
         <span>🔥 Day 4</span>
         <span>饱满度与侧臀雕刻</span>
       </button>
       <button onclick="switchDay(5)" data-day="5" class="day-tab px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800">
-        <span>⭐ 进阶动作精析</span>
+        <span>⭐ 进阶精讲</span>
         <span>Tia高阶动作拆解</span>
       </button>
     </div>
@@ -179,10 +190,9 @@
         </div>
       </div>
 
-      <!-- Exercise Cards -->
       <div class="space-y-3">
 
-        <!-- Exercise 1 -->
+        <!-- D1 - E1 -->
         <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e1">
           <div class="flex items-start justify-between gap-3">
             <div class="flex items-start gap-3">
@@ -190,12 +200,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">热身激活</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 瑜伽室：瑜伽垫 + 弹力带</span>
                   <h4 class="text-sm sm:text-base font-bold text-white">弹力带地面臀桥 + 蚌式外展</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组 × 15 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>目标：唤醒沉睡臀肌</span>
+                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>唤醒沉睡臀肌</span>
                 </div>
               </div>
             </div>
@@ -204,24 +215,25 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>将弹力带套在膝盖上方两指处，抬起到顶点时微收腹部使骨盆微后倾，切忌弓腰挺肚子。在最高点主动外展膝盖 1 秒再下落。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>在瑜伽室铺垫，弹力带套在膝盖上方两指。臀桥抬起时下腹收紧、骨盆微后倾，切忌弓腰；顶点主动向外撑开膝盖1秒。</p>
           </div>
         </div>
 
-        <!-- Exercise 2 -->
+        <!-- D1 - E2 -->
         <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e2">
           <div class="flex items-start justify-between gap-3">
             <div class="flex items-start gap-3">
               <input type="checkbox" onchange="toggleItem(this, 'd1_e2')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">核心主菜 · 黄金动作</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯机 / 杠铃臀推 (Hip Thrust)</h4>
+                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">王牌主菜</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架 + 卧推平凳</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯机臀推 (Smith Hip Thrust)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-1"></i>对应器械：史密斯架 / 平凳</span>
+                  <span class="text-rose-300"><i data-lucide="shield" class="w-3.5 h-3.5 inline mr-1"></i>固定导轨更安全稳定性好</span>
                 </div>
               </div>
             </div>
@@ -230,25 +242,26 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1.5 border border-slate-800/60">
-            <p><strong class="text-emerald-400">✅ 关键要领：</strong>肩胛骨下缘卡在训练凳边缘，双脚蹬地让小腿在最高点垂直地面。下巴微收，眼睛看着正前方，不要向后仰头。</p>
-            <p><strong class="text-amber-400">⚠️ 避坑提醒：</strong>顶点骨盆微后倾、夹紧臀部停顿 1 秒；感觉腰酸说明推得过高腰椎超伸，下沉肋骨收紧腹部即可消除。</p>
+            <p><strong class="text-emerald-400">✅ 关键要领：</strong>史密斯杆加上海绵垫放在髋骨折痕处。上背肩胛骨下角靠凳边缘，小腿在顶点垂直地面，下巴微收目视前方，在顶点夹紧臀部停顿 1 秒。</p>
+            <p><strong class="text-amber-400">⚠️ 避坑提醒：</strong>不要往后仰头挺胸，防止腰椎超伸借力引发下背痛。</p>
           </div>
         </div>
 
-        <!-- Exercise 3 -->
+        <!-- D1 - E3 -->
         <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e3">
           <div class="flex items-start justify-between gap-3">
             <div class="flex items-start gap-3">
               <input type="checkbox" onchange="toggleItem(this, 'd1_e3')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">后链离心拉伸</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃罗马尼亚硬拉 (RDL)</h4>
+                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">后链离心拉伸 · 提拉臀线</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 自由力量哑铃区</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃罗马尼亚硬拉 (Dumbbell RDL)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>臀下褶皱 + 腘绳肌提拉</span>
+                  <span class="text-cyan-300"><i data-lucide="check" class="w-3.5 h-3.5 inline mr-1"></i>相比大杠铃更适合女生新手</span>
                 </div>
               </div>
             </div>
@@ -257,24 +270,25 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>新手推荐先用哑铃（比长杠铃更易贴紧大腿），微屈膝，把髋部想象成被一根绳子往正后方拉，哑铃顺着大腿下垂至小腿上缘，感受臀部被深度拉伸。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>微屈膝，把髋部想象成关车门一样往正后方顶。哑铃紧贴大腿小腿下落至膝盖下方，感受臀部下边缘与大腿后侧强烈牵拉感。</p>
           </div>
         </div>
 
-        <!-- Exercise 4 -->
+        <!-- D1 - E4 -->
         <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e4">
           <div class="flex items-start justify-between gap-3">
             <div class="flex items-start gap-3">
               <input type="checkbox" onchange="toggleItem(this, 'd1_e4')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">孤立雕刻</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">龙门架绳索髋屈伸 / 绳索后踢</h4>
+                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">后链神器 · 零腰椎压力</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 山羊挺身椅 (Back Extension)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">45°圆背山羊挺身 (Glute Hyperextension)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次 / 侧</span>
+                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-rose-300"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-1"></i>对应器械：大型绳索龙门架</span>
+                  <span class="text-rose-300"><i data-lucide="star" class="w-3.5 h-3.5 inline mr-1"></i>完美平替重杠铃硬拉</span>
                 </div>
               </div>
             </div>
@@ -283,24 +297,52 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>滑轮调至最低，套住脚踝，身体微前倾手扶立柱。向斜后方45度发力踢出，顶点顶峰收缩1秒。保持核心锁死，严禁晃动腰部借力！</p>
+            <p><strong class="text-emerald-400">🌟 健身房独门调法：</strong>将挡板高度调低至髂骨下方2指（保证髋关节自由屈伸）。脚尖外展45度，<strong class="text-white">背部主动含胸微弓（锁定竖脊肌不发力）</strong>，只用臀部收缩把身体拉起到一条直线，顶峰夹臀2秒！</p>
           </div>
         </div>
 
-        <!-- Exercise 5 -->
-        <div class="workout-card rounded-2xl bg-slate-900/90 border border-rose-900/40 p-4 transition hover:border-rose-700/60" data-id="d1_e5">
+        <!-- D1 - E5 -->
+        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition hover:border-slate-700" data-id="d1_e5">
           <div class="flex items-start justify-between gap-3">
             <div class="flex items-start gap-3">
               <input type="checkbox" onchange="toggleItem(this, 'd1_e5')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-rose-300 bg-rose-500/20 px-2 py-0.5 rounded border border-rose-500/30">泵感炸裂 · 超级收尾</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">弹力带持续张力臀推 10次 + 顶点外展 10次</h4>
+                  <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">孤立雕刻</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 超大绳索龙门架 (滑轮最低位)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">龙门架绳索过裆伸髋 (Pull-Through) 或 绳索后踢</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组超级组 (无间歇衔接)</span>
+                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
+                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
+                  <span class="text-amber-300"><i data-lucide="zap" class="w-3.5 h-3.5 inline mr-1"></i>完美平替犀牛角深蹲</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
+              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
+            </button>
+          </div>
+          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
+            <p><strong class="text-slate-100">💡 动作精要：</strong>背对龙门架，绳索装双头绳从两腿之间穿过。身体前倾屈髋蓄力，起立时臀部主动向前顶出收缩。水平方向阻力对臀部的持续张力极强，完全不用脊椎承重！</p>
+          </div>
+        </div>
+
+        <!-- D1 - E6 -->
+        <div class="workout-card rounded-2xl bg-slate-900/90 border border-rose-900/40 p-4 transition hover:border-rose-700/60" data-id="d1_e6">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" onchange="toggleItem(this, 'd1_e6')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-bold text-rose-300 bg-rose-500/20 px-2 py-0.5 rounded border border-rose-500/30">泵感炸裂 · 超级收尾</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 瑜伽室：弹力带</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">弹力带臀推 10次 + 顶点外展 10次 (你的组合)</h4>
+                </div>
+                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组超级组 (无间歇)</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>组间休息 75s</span>
-                  <span class="text-amber-300"><i data-lucide="flame" class="w-3.5 h-3.5 inline mr-1"></i>泵血充盈收尾</span>
+                  <span class="text-rose-400"><i data-lucide="flame" class="w-3.5 h-3.5 inline mr-1"></i>泵血充盈</span>
                 </div>
               </div>
             </div>
@@ -309,7 +351,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-rose-400">🔥 燃脂高光：</strong>膝盖套中等阻力弹力带，连续做 10 次全程节奏臀推；第 10 次停在最高点不放下，直接顶峰外展对抗阻力 10 次，彻底榨干臀大肌与臀中肌！</p>
+            <p><strong class="text-rose-400">🔥 燃脂高光：</strong>在凳上用弹力带连续做10次快上慢下的臀推；第10次定在最高点保持持续张力，直接外展对抗阻力10次，彻底充血！</p>
           </div>
         </div>
 
@@ -337,12 +379,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">倒三角开背</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">多功能器械 / 绳索高位下拉 (Lat Pulldown)</h4>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 多功能力量器械：高位下拉站位</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">坐姿高位下拉 (Lat Pulldown)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 10~12 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-cyan-300"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-1"></i>综合器械高位站位</span>
+                  <span class="text-cyan-300">打造沙漏腰背比</span>
                 </div>
               </div>
             </div>
@@ -351,7 +394,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>胸口微挺向上迎向把手，手肘向下、向身体两侧下插，感受腋下后侧背阔肌收缩，回放时有控制地拉长背部。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>多功能器械卡住大腿，双手握宽把，胸口迎向把手，手肘向下插向腰侧，感受腋下背阔肌收缩。</p>
           </div>
         </div>
 
@@ -361,13 +404,14 @@
               <input type="checkbox" onchange="toggleItem(this, 'd2_e2')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">改善圆肩驼背</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">坐姿器械划船 / 龙门架面拉 (Face Pull)</h4>
+                  <span class="text-xs font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">改善圆肩</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 龙门架滑轮 (头部高度)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">绳索面拉 (Face Pull) 或 坐姿划船</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-cyan-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>上背菱形肌与肩袖外旋</span>
+                  <span class="text-cyan-300">展开锁骨·消除富贵包</span>
                 </div>
               </div>
             </div>
@@ -376,7 +420,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>面拉是体态神技。绳索拉向面部鼻尖高度，双手向外旋开，手肘略高于手腕，强化后束与肩袖，让锁骨舒展。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>双手抓双头绳，拉向额头鼻梁处，同时把两端向外拉开，强化三角肌后束与上背，矫正含胸驼背。</p>
           </div>
         </div>
 
@@ -386,13 +430,14 @@
               <input type="checkbox" onchange="toggleItem(this, 'd2_e3')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">直角肩雕刻</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃 / 绳索侧平举 (Lateral Raise)</h4>
+                  <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">直角肩</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 自由哑铃区 (1.5~2.5kg)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">哑铃侧平举 (Lateral Raise)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 12~15 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-amber-300"><i data-lucide="feather" class="w-3.5 h-3.5 inline mr-1"></i>小重量·高精准度</span>
+                  <span class="text-amber-300">小重量雕刻肩线</span>
                 </div>
               </div>
             </div>
@@ -401,7 +446,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>不要选重哑铃（女生建议 1.5~3kg 起步）。手肘微屈，向斜前方30度举起至肩膀齐平，注意力集中在肩外侧，杜绝耸肩。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>手肘微屈，向斜前方举起至与肩齐平，肩膀下沉不耸肩，打造清晰的一字肩线。</p>
           </div>
         </div>
 
@@ -411,12 +456,14 @@
               <input type="checkbox" onchange="toggleItem(this, 'd2_e4')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
               <div>
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">博主功能核心</span>
+                  <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">博主同款核心</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 平卧推凳 / 下斜卷腹凳</span>
                   <h4 class="text-sm sm:text-base font-bold text-white">髋屈抗旋静态板撑 (见图3)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 每侧静力坚持 20~30 秒</span>
+                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 每侧 20~25s</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
+                  <span class="text-emerald-300">收紧腹横肌勒细腰线</span>
                 </div>
               </div>
             </div>
@@ -425,41 +472,50 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>双手撑地在平板凳前，一侧腿膝盖弯曲向上提髋，对抗身体旋转的扭力。腹部收紧如穿束腰带，不仅练深层核心还能收紧小腹！</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>双手撑地在平板凳前，一侧腿膝盖弯曲向上提髋，对抗身体旋转的扭力。腹部收紧如穿束腰带。</p>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- DAY 3: 主动恢复与伸展 -->
+    <!-- DAY 3: 主动恢复与爬坡 -->
     <div id="dayContent3" class="day-content hidden space-y-4">
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
         <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2 mb-2">
           <i data-lucide="heart" class="w-5 h-5 text-rose-400"></i>
-          Day 3：主动恢复、筋膜放松与神经系统修复
+          Day 3：健身房专属主动恢复与爬坡燃脂
         </h3>
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-          肌肉是在休息时生长与塑形的。肌肉酸痛时不要完全躺平不动，低强度的充血与关节灵活性训练能加速乳酸代谢并改善体态。
+          利用您健身房完善的有氧区（爬坡机/楼梯机）与瑜伽室，进行低冲击臀部泵感维持与筋膜放松。
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center mb-2 font-bold text-xs">1</div>
-            <h4 class="text-sm font-bold text-white">泡沫轴筋膜放松 (10 min)</h4>
-            <p class="text-xs text-slate-400 mt-1">重点滚压大腿前侧股四头肌、大腿外侧阔筋膜张机 (TFL) 与臀部梨状肌，解除下肢紧绷感。</p>
+            <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2 font-bold text-xs">
+              <i data-lucide="activity" class="w-4 h-4"></i>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-bold">📍 有氧器械区</span>
+            <h4 class="text-sm font-bold text-white mt-0.5">爬坡机 / 楼梯机 (20~25 min)</h4>
+            <p class="text-xs text-slate-400 mt-1">坡度调至 10~12，速度 4.5km/h，上身微前倾，全脚掌踩实后脚跟发力，臀部微酸但不喘，燃脂提臀两不误。</p>
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-2 font-bold text-xs">2</div>
-            <h4 class="text-sm font-bold text-white">髋屈肌后撤伸展 (见图2)</h4>
-            <p class="text-xs text-slate-400 mt-1">坐在凳上缓慢后倾拉长髂腰肌，改善日常久坐带来的骨盆前倾与假性髋酸胀。</p>
+            <div class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center mb-2 font-bold text-xs">
+              <i data-lucide="disc" class="w-4 h-4"></i>
+            </div>
+            <span class="text-[10px] text-rose-400 font-bold">📍 瑜伽室放松区</span>
+            <h4 class="text-sm font-bold text-white mt-0.5">泡沫轴筋膜放松 (10 min)</h4>
+            <p class="text-xs text-slate-400 mt-1">使用健身房泡沫轴，重点滚压大腿前侧（股四头肌）、大腿外侧（阔筋膜张肌）与臀部梨状肌，解除深蹲后的下肢紧绷。</p>
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2 font-bold text-xs">3</div>
-            <h4 class="text-sm font-bold text-white">坡度慢走 / 爬坡机 (20 min)</h4>
-            <p class="text-xs text-slate-400 mt-1">利用健身房爬坡机或跑步机坡度 8~10，速度 4.5~5.0km/h 大步走，后脚跟蹬地发力不扶把手。</p>
+            <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-2 font-bold text-xs">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </div>
+            <span class="text-[10px] text-cyan-400 font-bold">📍 训练凳 / 瑜伽垫</span>
+            <h4 class="text-sm font-bold text-white mt-0.5">髋屈肌后撤伸展 (见图2)</h4>
+            <p class="text-xs text-slate-400 mt-1">坐在凳上缓慢后倾拉长髂腰肌，打开日常久坐缩短的大腿根部，改善骨盆前倾。</p>
           </div>
         </div>
       </div>
@@ -486,12 +542,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">单腿稳定性</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">单腿髋屈伸 + 髋飞机 (Hip Airplane)</h4>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架立柱旁 (手扶辅助)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">单腿髋屈伸 + 髋飞机 (你的组合)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>2 组 × 每侧 8~10 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
-                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>臀中肌内收外旋控制</span>
+                  <span class="text-rose-300">改善左右臀发力不均</span>
                 </div>
               </div>
             </div>
@@ -500,7 +557,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-emerald-400">新手降阶：</strong>新手初期站立不稳定时，单手轻扶深蹲架立柱！先做单腿屈髋，在后腿伸直的基础上，慢慢旋转骨盆向上翻转打开，感受支撑腿臀部外侧像火烧一样酸胀。</p>
+            <p><strong class="text-emerald-400">新手降阶：</strong>单手轻扶史密斯架立柱！先做单腿屈髋，在后腿伸直的基础上，慢慢旋转骨盆向上翻转打开，感受支撑腿臀部外侧强烈酸胀感。</p>
           </div>
         </div>
 
@@ -511,12 +568,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">大重量主项</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯深蹲架</span>
                   <h4 class="text-sm sm:text-base font-bold text-white">史密斯相扑深蹲 / 箱式深蹲 (Sumo Squat)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 8~10 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-1"></i>对应器械：史密斯架</span>
+                  <span class="text-rose-300">臀大肌下沿与内收肌</span>
                 </div>
               </div>
             </div>
@@ -525,7 +583,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>站距宽于肩（约1.5倍），脚尖外展约 30~45 度，下蹲时膝盖与脚尖方向严格一致并主动向外推开。上身保持直立，下蹲至大腿与地面平行即可，避免过度依赖股四头肌。</p>
+            <p><strong class="text-slate-100">💡 动作精要：</strong>站距宽于肩（约1.5倍），脚尖外展 30~45 度，下蹲时膝盖朝脚尖方向推开。可后方放一个平凳做箱式深蹲，触凳即起，安全不伤膝盖。</p>
           </div>
         </div>
 
@@ -536,12 +594,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">后侧深层刺激</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">反向哈克深蹲 / 史密斯反向深蹲</h4>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 史密斯架反向站位 (平替反向哈克)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">史密斯反向站位深蹲 (Reverse Smith Squat)</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 10~12 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 90s</span>
-                  <span class="text-rose-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>大腿后链与臀大肌拉伸</span>
+                  <span class="text-rose-300">零膝盖剪切力·全臀负荷</span>
                 </div>
               </div>
             </div>
@@ -550,7 +609,7 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 动作精要：</strong>面对器械站立，将髋部主动向后推出。相较于常规深蹲，反向姿态大幅减少膝关节压力，力矩全部精准落在大腿后侧与臀肌上。</p>
+            <p><strong class="text-emerald-400">平替说明：</strong>健身房没有反向哈克机？在史密斯架反向站立（面朝后方），双脚向前迈出半步，下蹲时将臀部主动向后推出。力矩精准转移至大腿后链与臀肌！</p>
           </div>
         </div>
 
@@ -561,12 +620,13 @@
               <div>
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">侧臀饱满神器</span>
-                  <h4 class="text-sm sm:text-base font-bold text-white">坐姿器械髋外展 / 弹力带坐姿外展</h4>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 龙门架滑轮最低位 / 坐姿平凳弹力带</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">绳索侧外展 或 弹力带坐姿髋外展</h4>
                 </div>
                 <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>4 组 × 15~20 次</span>
                   <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 45s</span>
-                  <span class="text-purple-300"><i data-lucide="target" class="w-3.5 h-3.5 inline mr-1"></i>填平臀部两侧凹陷</span>
+                  <span class="text-purple-300">填平臀侧凹陷</span>
                 </div>
               </div>
             </div>
@@ -575,14 +635,40 @@
             </button>
           </div>
           <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
-            <p><strong class="text-slate-100">💡 技巧小变式：</strong>前 10 次上身前倾 30 度（打臀上中束），后 10 次上身紧贴椅背直立（打臀大肌上部与梨状肌），两重刺激同时拥有！</p>
+            <p><strong class="text-slate-100">💡 技巧小变式：</strong>坐在平凳前端套弹力带，前10次身体前倾30度（刺激臀中肌上部），后10次上身挺直（刺激臀大肌上部），双重刺激填平侧臀。</p>
+          </div>
+        </div>
+
+        <div class="workout-card rounded-2xl bg-slate-900/90 border border-slate-800/80 p-4 transition" data-id="d4_e5">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" onchange="toggleItem(this, 'd4_e5')" class="mt-1 w-5 h-5 rounded-lg border-slate-700 bg-slate-800 text-rose-600 focus:ring-rose-500 cursor-pointer">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">腘绳肌孤立</span>
+                  <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">📍 双功能腿弯举机 (Leg Curl)</span>
+                  <h4 class="text-sm sm:text-base font-bold text-white">俯卧 / 坐姿腿弯举 (Leg Curl)</h4>
+                </div>
+                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                  <span><i data-lucide="layers" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>3 组 × 12~15 次</span>
+                  <span><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 text-slate-500"></i>休息 60s</span>
+                  <span class="text-rose-300">清晰臀腿分界线</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startQuickTimer(60)" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 shrink-0">
+              <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>60s
+            </button>
+          </div>
+          <div class="mt-3 p-3 rounded-xl bg-slate-950/60 text-xs text-slate-300 space-y-1 border border-slate-800/60">
+            <p><strong class="text-slate-100">💡 动作精要：</strong>直接使用健身房腿弯举机，脚踝勾住滚轴，快速勾起到顶点停顿1秒，慢速回放3秒，收紧大腿后侧，让臀部看起来更加挺拔独立。</p>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- DAY 5: TIA 高阶动作拆解与功能指南 (USER UPLOADED IMAGES EMBEDDED) -->
+    <!-- DAY 5: TIA 高阶动作拆解 (USER IMAGES EMBEDDED) -->
     <div id="dayContent5" class="day-content hidden space-y-6">
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
         <div class="flex items-center gap-2 mb-2">
@@ -595,7 +681,7 @@
           </div>
         </div>
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2">
-          你在社交媒体上看到的这 3 个动作属于<strong class="text-rose-400">高阶身体控制与末端肌力训练</strong>。很多新手直接盲目模仿容易因为肩部下沉不够、核心松散导致腰部借力。下面是 ISSA 教练维度的科学拆解与新手落地指引：
+          你在社交媒体上看到的这 3 个动作属于<strong class="text-rose-400">高阶身体控制与末端肌力训练</strong>。很多新手直接盲目模仿容易因为肩部下沉不够、核心松散导致腰部借力。下面结合您健身房设施进行落地拆解：
         </p>
       </div>
 
@@ -612,15 +698,15 @@
             <div>
               <div class="flex items-center justify-between mb-2">
                 <h4 class="text-lg font-black text-white">动作一：垂悬鸟狗式 (Suspended Bird-Dog)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300">骨盆抗旋</span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 史密斯架锁定在胸部高度</span>
               </div>
               <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
-                <p><strong class="text-rose-400">🎯 动作本质：</strong>利用反向划船杠铃（或低杠）将上半身悬空，在对抗重力悬吊的同时，对角线进行手肘屈伸与单腿抬举。</p>
+                <p><strong class="text-rose-400">🎯 动作本质：</strong>将史密斯杆锁定在胸腰高度，双手悬吊身体呈反向倾斜平板，对角线进行单臂屈伸与单腿后抬。</p>
                 <p><strong class="text-emerald-400">💪 锻炼效益：</strong>深层多裂肌、腹横肌抗旋转控制、单侧臀大肌后链锁死能力。</p>
                 <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
-                  <strong class="text-amber-400">🌱 新手进阶路径：</strong>
-                  <br>① 第1~2周：先在瑜伽垫上完成标准四足跪姿鸟狗式（每侧12次，保持骨盆水平不倾斜）；
-                  <br>② 第3周起：再移步至史密斯架低杠进行半悬空练习，避免上肢脱力摔落。
+                  <strong class="text-amber-400">🌱 新手落地指南：</strong>
+                  <br>① 第1~2周：先在瑜伽室垫上做地面鸟狗式（保持骨盆完全水平）；
+                  <br>② 第3周起：在史密斯架将杠铃杆调高一些（角度越高越容易），熟悉反向悬吊后再慢慢降低杆高。
                 </div>
               </div>
             </div>
@@ -644,14 +730,14 @@
             <div>
               <div class="flex items-center justify-between mb-2">
                 <h4 class="text-lg font-black text-white">动作二：髋屈肌后撤 (Hip Flexor Leanback)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300">末端长度肌力</span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 卧推平凳前端</span>
               </div>
               <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
                 <p><strong class="text-rose-400">🎯 动作本质：</strong>躯干后仰，在髂腰肌与股直肌处于极限拉伸（末端长度）状态下抗阻产力并单腿提膝。</p>
                 <p><strong class="text-emerald-400">💪 锻炼效益：</strong>现代人长期久坐髋屈肌极度缩短萎缩，这个动作能够打开大腿根部，让深蹲与臀推伸髋时臀肌真正收缩到极限！</p>
                 <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
                   <strong class="text-cyan-400">🌱 新手操作建议：</strong>
-                  <br>坐在训练凳前端，双手扶在髋部或凳边，身体先向后倾斜 30 度感受大腿根被拉开，缓慢抬起一侧膝盖停顿 1 秒，不要憋气。
+                  <br>坐在健身房平凳边缘，双手扶在髋部或凳边，身体先向后倾斜 30 度感受大腿根被拉开，缓慢抬起一侧膝盖停顿 1 秒，不要憋气。
                 </div>
               </div>
             </div>
@@ -675,7 +761,7 @@
             <div>
               <div class="flex items-center justify-between mb-2">
                 <h4 class="text-lg font-black text-white">动作三：髋屈抗旋静态板撑 (Anti-Rotation Hold)</h4>
-                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300">腰腹紧致</span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">📍 下斜卷腹凳 / 平板凳</span>
               </div>
               <div class="space-y-2 text-xs sm:text-sm text-slate-300 mt-3">
                 <p><strong class="text-rose-400">🎯 动作本质：</strong>利用平板凳垫高后脚，呈俯卧撑静态支撑姿势，同时将一侧膝盖跪姿屈曲悬空提向胸腹部。</p>
@@ -695,7 +781,7 @@
 
     </div>
 
-    <!-- NUTRITION & BEGINNER FAQ ACCORDION -->
+    <!-- NUTRITION & FAQ -->
     <section class="rounded-3xl bg-slate-900 border border-slate-800 p-5 sm:p-6 space-y-4">
       <div class="flex items-center gap-2">
         <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
@@ -710,7 +796,7 @@
             <i data-lucide="check-circle" class="w-4 h-4 text-rose-400"></i> Q1：练臀会把大腿练粗吗？
           </h4>
           <p class="text-slate-300 leading-relaxed text-xs">
-            不会！计划重点是<strong class="text-white">伸髋主导</strong>（臀推、RDL、外展），大幅减少了前侧股四头肌的主动过度做功。适当的后侧腘绳肌紧致只会让臀腿分界线更清晰，视觉上让腿显得更修长。
+            不会！计划重点是<strong class="text-white">伸髋主导</strong>（臀推、RDL、山羊挺身、绳索伸髋），大幅减少了前侧股四头肌的主动做功。适当的腘绳肌紧致只会让臀腿分界线更清晰，视觉上让腿显得更修长。
           </p>
         </div>
 
@@ -744,6 +830,55 @@
     </section>
 
   </main>
+
+  <!-- GYM MODAL -->
+  <div id="gymModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="dumbbell" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="font-black text-white text-base">您的健身房器械 1:1 训练映射表</h3>
+        </div>
+        <button onclick="toggleGymEquipmentModal()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">1. 史密斯机 / 深蹲架</strong>
+          <p class="mt-1">➔ 用于：史密斯臀推（主打大重量安全伸髋）、史密斯相扑深蹲、史密斯反向深蹲（平替反向哈克机）。</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">2. 山羊挺身椅 (Back Extension)</strong>
+          <p class="mt-1">➔ 用于：45°圆背山羊挺身。专门将挡板调至髂骨下方，圆背只用臀大肌拉起身体，对女生来说比大杠铃硬拉更孤立、零腰椎负担！</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">3. 超大绳索龙门架 (Cable Crossover)</strong>
+          <p class="mt-1">➔ 用于：滑轮调至最低做绳索过裆髋屈伸（平替犀牛角深蹲）、绳索侧外展、绳索面拉（改善圆肩）、坐姿划船。</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">4. 双功能腿弯举机 (Leg Curl)</strong>
+          <p class="mt-1">➔ 用于：腘绳肌孤立训练，强化大腿后侧紧致度，拉出清晰臀腿分界线。</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">5. 多功能综合力量器械</strong>
+          <p class="mt-1">➔ 用于：坐姿高位下拉、坐姿划船，打造背阔肌与沙漏腰背比。</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">6. 爬坡机 / 楼梯机</strong>
+          <p class="mt-1">➔ 用于：Day 3 主动恢复与低冲击高效臀腿有氧燃脂。</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+          <strong class="text-emerald-400">7. 瑜伽室、泡沫轴、弹力带</strong>
+          <p class="mt-1">➔ 用于：地面臀桥外展激活、单腿髋飞机、反向鸟狗式与肌肉筋膜放松。</p>
+        </div>
+      </div>
+      <button onclick="toggleGymEquipmentModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition">
+        关闭
+      </button>
+    </div>
+  </div>
 
   <!-- FLOATING TIMER DRAWER / BAR -->
   <div id="timerDrawer" class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800 px-4 py-3 transform transition-transform duration-300 translate-y-full">
@@ -781,10 +916,8 @@
   </div>
 
   <script>
-    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // State
     let currentDay = 1;
     let timerDuration = 60;
     let timerRemaining = 60;
@@ -792,7 +925,11 @@
     let isTimerRunning = false;
     let audioCtx = null;
 
-    // Load progress from localStorage
+    function toggleGymEquipmentModal() {
+      const modal = document.getElementById('gymModal');
+      modal.classList.toggle('hidden');
+    }
+
     function getStoredProgress() {
       try {
         return JSON.parse(localStorage.getItem('glute_workout_progress') || '{}');
@@ -805,14 +942,12 @@
       localStorage.setItem('glute_workout_progress', JSON.stringify(data));
     }
 
-    // Switch Day Tabs
     function switchDay(day) {
       currentDay = day;
       document.querySelectorAll('.day-content').forEach(el => el.classList.add('hidden'));
       const activeContent = document.getElementById(`dayContent${day}`);
       if (activeContent) activeContent.classList.remove('hidden');
 
-      // Update button styling
       document.querySelectorAll('.day-tab').forEach(btn => {
         const d = parseInt(btn.dataset.day);
         if (d === day) {
@@ -826,7 +961,6 @@
       window.scrollTo({ top: 180, behavior: 'smooth' });
     }
 
-    // Checkbox toggling
     function toggleItem(checkbox, id) {
       const progress = getStoredProgress();
       progress[id] = checkbox.checked;
@@ -835,9 +969,9 @@
       const card = checkbox.closest('.workout-card');
       if (card) {
         if (checkbox.checked) {
-          card.classList.add('opacity-60', 'line-through-decor');
+          card.classList.add('opacity-60');
         } else {
-          card.classList.remove('opacity-60', 'line-through-decor');
+          card.classList.remove('opacity-60');
         }
       }
       updateProgressUI();
@@ -879,7 +1013,6 @@
       }
     }
 
-    // TIMER LOGIC
     function toggleTimerDrawer() {
       const drawer = document.getElementById('timerDrawer');
       drawer.classList.toggle('translate-y-full');
@@ -906,9 +1039,8 @@
       document.getElementById('timerText').textContent = text;
       document.getElementById('navTimerDisplay').textContent = text;
 
-      // Circle dash offset
       const circle = document.getElementById('timerProgressCircle');
-      const totalCircumference = 2 * Math.PI * 20; // ~125.66
+      const totalCircumference = 2 * Math.PI * 20;
       const fraction = timerRemaining / timerDuration;
       circle.style.strokeDashoffset = (1 - fraction) * totalCircumference;
     }
@@ -929,16 +1061,14 @@
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
         gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start();
         osc.stop(audioCtx.currentTime + 0.4);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     }
 
     function startTimer() {
@@ -969,7 +1099,6 @@
       lucide.createIcons();
     }
 
-    // Init UI on load
     window.addEventListener('DOMContentLoaded', () => {
       updateTimerDisplay();
       updateProgressUI();
